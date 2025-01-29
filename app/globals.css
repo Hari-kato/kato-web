@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #4361EE;
+  --primary-dark: #3730A3;
+  --secondary: #6366F1;
+  --secondary-light: #EBF3FF;
+  --accent: #4F46E5;
+  --background: #FFFFFF;
+  --text-primary: #1A1B1E;
+  --text-secondary: #64748B;
+}
+
+@layer base {
+  body {
+    @apply font-lexend text-text-primary bg-background;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300;
+  }
+
+  .heading-highlight {
+    @apply relative inline-block;
+  }
+
+  .heading-highlight::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-full h-[3px] bg-[#4361EE];
+    opacity: 0;
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+  }
+
+  .heading-highlight.animate::after {
+    animation: lineIn 1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+  }
+
+  /* Fade Up Animation Classes */
+  .fade-up-element {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  .fade-up-element.animate {
+    animation: fadeUp 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  }
+
+  /* Service Cards Animation */
+  .service-card {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  .service-card.animate {
+    animation: fadeUp 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  }
+
+  /* Testimonial Cards Animation */
+  .testimonial-card {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  .testimonial-card.animate {
+    animation: fadeUp 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  }
+
+  /* Case Study Cards Animation */
+  .case-study-card {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  .case-study-card.animate {
+    animation: fadeUp 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  }
+
+  /* FAQ Items Animation */
+  .faq-item {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  .faq-item.animate {
+    animation: fadeUp 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  }
+
+  /* Contact Form Animation */
+  .contact-form {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  .contact-form.animate {
+    animation: fadeUp 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  }
+
+  /* Staggered Animation Delays */
+  .stagger-animation:nth-child(1) { animation-delay: 0s; }
+  .stagger-animation:nth-child(2) { animation-delay: 0.1s; }
+  .stagger-animation:nth-child(3) { animation-delay: 0.2s; }
+  .stagger-animation:nth-child(4) { animation-delay: 0.3s; }
+  .stagger-animation:nth-child(5) { animation-delay: 0.4s; }
+  .stagger-animation:nth-child(6) { animation-delay: 0.5s; }
+  .stagger-animation:nth-child(7) { animation-delay: 0.6s; }
+  .stagger-animation:nth-child(8) { animation-delay: 0.7s; }
+}
+
+@keyframes lineIn {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero Section */
+.hero-gradient {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+/* Service Cards */
+.service-card {
+  @apply bg-white rounded-xl p-8 transition-all duration-500 hover:shadow-2xl relative overflow-hidden;
+}
+
+.service-icon {
+  @apply relative z-10 transition-all duration-500;
+}
+
+.service-card::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary to-secondary opacity-0 transition-opacity duration-500;
+}
+
+.service-card:hover::before {
+  @apply opacity-5;
+}
+
+.service-card:hover .service-icon {
+  transform: rotateY(360deg);
+}
+
+/* Client Logos */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-180px * 10 - 3rem * 10));
+  }
+}
+
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-right-element {
+  opacity: 0;
+  transform: translateX(60px);
+}
+
+.fade-right-element.animate {
+  animation: fadeRight 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+/* Update aspect ratio for work cards */
+.work-card-image {
+  aspect-ratio: 16/9;
+}
