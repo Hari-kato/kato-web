@@ -1,0 +1,52 @@
+/* Blog Details Page Styles */
+.prose {
+  @apply text-gray-700;
+}
+
+.prose h2 {
+  @apply text-2xl font-bold text-gray-900 mt-8 mb-4;
+}
+
+.prose p {
+  @apply mb-6 leading-relaxed;
+}
+
+.prose ul,
+.prose ol {
+  @apply mb-6 pl-6;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose strong {
+  @apply text-gray-900 font-semibold;
+}
+
+.prose ul > li {
+  @apply list-disc;
+}
+
+.prose ol > li {
+  @apply list-decimal;
+}
+
+.prose ul > li > ul {
+  @apply mt-2 mb-0;
+}
+
+/* Form Styles */
+.form-input:focus {
+  @apply outline-none ring-2 ring-[#4361EE]/20 border-[#4361EE];
+}
+
+/* Responsive Images */
+.aspect-img {
+  @apply relative overflow-hidden;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.aspect-img img {
+  @apply absolute top-0 left-0 w-full h-full object-cover;
+}

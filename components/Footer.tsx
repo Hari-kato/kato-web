@@ -8,15 +8,15 @@ const footerLinks = {
     { label: 'Our Story', href: '#' },
     { label: 'Process', href: '#' },
     { label: 'Engagement Model', href: '#' },
-    { label: 'Blog', href: '#' },
+    { label: 'Blog', href: '/blogs' },
     { label: 'Contact Us', href: '#' }
   ],
   whyTesla: [
-    { label: 'Case Study', href: '#' },
+    { label: 'Case Study', href: '/case-studies' },
     { label: 'Testimonials', href: '#' },
     { label: 'Life @ Tesla', href: '#' },
     { label: 'Resources', href: '#' },
-    { label: 'Careers', href: '#' },
+    { label: 'Careers', href: '/careers' },
     { label: 'Our Clients', href: '#' }
   ],
   services: [
