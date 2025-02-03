@@ -38,7 +38,7 @@
 
 /* Form Styles */
 .form-input:focus {
-  @apply outline-none ring-2 ring-[#4361EE]/20 border-[#4361EE];
+  @apply outline-none ring-2 ring-[#1f72b7]/20 border-[#1f72b7];
 }
 
 /* Responsive Images */

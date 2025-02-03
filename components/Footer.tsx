@@ -1,40 +1,9 @@
-"use client";
+'use client';
 
 import Link from 'next/link';
-import { Code2, Mail, Phone, Facebook, Twitter, Linkedin, Instagram, Youtube } from 'lucide-react';
-
-const footerLinks = {
-  company: [
-    { label: 'Our Story', href: '#' },
-    { label: 'Process', href: '#' },
-    { label: 'Engagement Model', href: '#' },
-    { label: 'Blog', href: '/blogs' },
-    { label: 'Contact Us', href: '#' }
-  ],
-  whyTesla: [
-    { label: 'Case Study', href: '/case-studies' },
-    { label: 'Testimonials', href: '#' },
-    { label: 'Life @ Tesla', href: '#' },
-    { label: 'Resources', href: '#' },
-    { label: 'Careers', href: '/careers' },
-    { label: 'Our Clients', href: '#' }
-  ],
-  services: [
-    { label: 'Cloud Consulting', href: '#' },
-    { label: 'Resource as a Service', href: '#' },
-    { label: 'DevOps Services', href: '#' },
-    { label: 'IoT (Internet of Things)', href: '#' },
-    { label: 'Product Engineering', href: '#' },
-    { label: 'Digital Transformation', href: '#' }
-  ]
-};
-
-const socialLinks = [
-  { label: 'Twitter', href: '#', icon: Twitter },
-  { label: 'LinkedIn', href: '#', icon: Linkedin },
-  { label: 'Instagram', href: '#', icon: Instagram },
-  { label: 'YouTube', href: '#', icon: Youtube }
-];
+import { Code2, Mail, Phone } from 'lucide-react';
+import { footerLinks } from '@/data/footer/footerlinks';
+import { socialLinks } from '@/data/footer/socialLinks';
 
 export default function Footer() {
   return (
@@ -57,7 +26,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-secondary-light hover:text-white text-sm transition-colors"
                   >
@@ -74,7 +43,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.whyTesla.map((link) => (
                 <li key={link.label}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-secondary-light hover:text-white text-sm transition-colors"
                   >
@@ -91,7 +60,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-secondary-light hover:text-white text-sm transition-colors"
                   >
@@ -108,13 +77,19 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5" />
-                <a href="tel:enquiry.tesla" className="hover:text-[#444] text-sm">
+                <a
+                  href="tel:enquiry.tesla"
+                  className="hover:text-[#444] text-sm"
+                >
                   +91 - 90123 45678
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5" />
-                <a href="mailto:info@tesla.com" className="hover:text-[#444] text-sm">
+                <a
+                  href="mailto:info@tesla.com"
+                  className="hover:text-[#444] text-sm"
+                >
                   info@tesla.com
                 </a>
               </div>
@@ -124,13 +99,19 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5" />
-                <a href="tel:enquiry.tesla" className="hover:text-[#444] text-sm">
+                <a
+                  href="tel:enquiry.tesla"
+                  className="hover:text-[#444] text-sm"
+                >
                   +91 - 90124 12356
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5" />
-                <a href="mailto:info@tesla.com" className="hover:text-[#444] text-sm">
+                <a
+                  href="mailto:info@tesla.com"
+                  className="hover:text-[#444] text-sm"
+                >
                   info@tesla.com
                 </a>
               </div>
@@ -142,7 +123,8 @@ export default function Footer() {
         <div className="pt-8 border-t border-secondary-light/20">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-secondary-light text-sm">
-              Copyright 2011-{new Date().getFullYear()} Tesla All rights reserved.
+              Copyright 2011-{new Date().getFullYear()} Tesla All rights
+              reserved.
             </p>
             <div className="flex space-x-6">
               {socialLinks.map((link) => (

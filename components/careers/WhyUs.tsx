@@ -1,53 +1,60 @@
-"use client";
+'use client';
 
 import { useEffect, useRef } from 'react';
-import { 
-  Users, Clock, ArrowUpRight, Target, 
-  Award, Briefcase, GraduationCap, Users2, 
-  Heart, Medal 
+import {
+  Users,
+  Clock,
+  ArrowUpRight,
+  Target,
+  Award,
+  Briefcase,
+  GraduationCap,
+  Users2,
+  Heart,
+  Medal,
 } from 'lucide-react';
 
 const benefits = [
   {
-    icon: <Target className="w-6 h-6 text-[#4361EE]" />,
-    title: "Growth-centric work",
+    icon: <Target className="w-6 h-6 text-[#1f72b7]" />,
+    title: 'Growth-centric work',
   },
   {
-    icon: <Heart className="w-6 h-6 text-[#4361EE]" />,
-    title: "Work-life balance",
+    icon: <Heart className="w-6 h-6 text-[#1f72b7]" />,
+    title: 'Work-life balance',
   },
   {
-    icon: <Users className="w-6 h-6 text-[#4361EE]" />,
-    title: "Supportive culture",
+    icon: <Users className="w-6 h-6 text-[#1f72b7]" />,
+    title: 'Supportive culture',
   },
   {
-    icon: <ArrowUpRight className="w-6 h-6 text-[#4361EE]" />,
-    title: "Career advancement",
+    icon: <ArrowUpRight className="w-6 h-6 text-[#1f72b7]" />,
+    title: 'Career advancement',
   },
   {
-    icon: <Briefcase className="w-6 h-6 text-[#4361EE]" />,
-    title: "Innovative projects",
+    icon: <Briefcase className="w-6 h-6 text-[#1f72b7]" />,
+    title: 'Innovative projects',
   },
   {
-    icon: <Clock className="w-6 h-6 text-[#4361EE]" />,
-    title: "Flexible hours",
+    icon: <Clock className="w-6 h-6 text-[#1f72b7]" />,
+    title: 'Flexible hours',
   },
   {
-    icon: <Users2 className="w-6 h-6 text-[#4361EE]" />,
-    title: "Diversity & inclusion",
+    icon: <Users2 className="w-6 h-6 text-[#1f72b7]" />,
+    title: 'Diversity & inclusion',
   },
   {
-    icon: <GraduationCap className="w-6 h-6 text-[#4361EE]" />,
-    title: "Mentorship opportunities",
+    icon: <GraduationCap className="w-6 h-6 text-[#1f72b7]" />,
+    title: 'Mentorship opportunities',
   },
   {
-    icon: <Award className="w-6 h-6 text-[#4361EE]" />,
-    title: "Recognition programs",
+    icon: <Award className="w-6 h-6 text-[#1f72b7]" />,
+    title: 'Recognition programs',
   },
   {
-    icon: <Medal className="w-6 h-6 text-[#4361EE]" />,
-    title: "Community engagement",
-  }
+    icon: <Medal className="w-6 h-6 text-[#1f72b7]" />,
+    title: 'Community engagement',
+  },
 ];
 
 export default function WhyUs() {
@@ -82,12 +89,15 @@ export default function WhyUs() {
           <div>
             <h2 className="text-4xl font-bold mb-6">
               Join Us for a{' '}
-              <span className="text-[#4361EE]">Journey of Growth</span>
+              <span className="text-[#1f72b7]">Journey of Growth</span>
             </h2>
-            <p ref={contentRef} className="text-gray-600 text-lg fade-up-element">
-              We care deeply about your growth and success. Our programs focus on 
-              enhancing your knowledge and capabilities. At Tesla, you can be 
-              assured of a fulfilling career, all while supporting your personal 
+            <p
+              ref={contentRef}
+              className="text-gray-600 text-lg fade-up-element"
+            >
+              We care deeply about your growth and success. Our programs focus
+              on enhancing your knowledge and capabilities. At Tesla, you can be
+              assured of a fulfilling career, all while supporting your personal
               well-being.
             </p>
           </div>
@@ -106,7 +116,7 @@ export default function WhyUs() {
               key={index}
               className="flex flex-col items-center text-center space-y-3 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-300"
             >
-              <div className="w-12 h-12 rounded-full bg-[#4361EE]/10 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-[#1f72b7]/10 flex items-center justify-center">
                 {benefit.icon}
               </div>
               <h3 className="font-medium text-gray-900">{benefit.title}</h3>

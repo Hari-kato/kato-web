@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --primary: #4361EE;
-  --primary-dark: #3730A3;
-  --secondary: #6366F1;
-  --secondary-light: #EBF3FF;
-  --accent: #4F46E5;
-  --background: #FFFFFF;
-  --text-primary: #1A1B1E;
-  --text-secondary: #64748B;
+  --primary: #1f72b7;
+  --primary-dark: #3730a3;
+  --secondary: #6366f1;
+  --secondary-light: #ebf3ff;
+  --accent: #4f46e5;
+  --background: #ffffff;
+  --text-primary: #1a1b1e;
+  --text-secondary: #64748b;
 }
 
 @layer base {
@@ -18,14 +18,19 @@
     @apply font-lexend text-text-primary bg-background;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold;
   }
 }
 
 @layer components {
   .form-input {
-    @apply w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300;
+    @apply w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#1f72b7] focus:ring-2 focus:ring-[#1f72b7]/20 transition-all duration-300;
   }
 
   .heading-highlight {
@@ -34,7 +39,7 @@
 
   .heading-highlight::after {
     content: '';
-    @apply absolute -bottom-1 left-0 w-full h-[3px] bg-[#4361EE];
+    @apply absolute -bottom-1 left-0 w-full h-[3px] bg-[#1f72b7];
     opacity: 0;
     transform-origin: 0 50%;
     transform: scaleX(0);
@@ -42,16 +47,6 @@
 
   .heading-highlight.animate::after {
     animation: lineIn 1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
-  }
-
-  /* Fade Up Animation Classes */
-  .fade-up-element {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-
-  .fade-up-element.animate {
-    animation: fadeUp 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
   }
 
   /* Service Cards Animation */
@@ -66,12 +61,15 @@
 
   /* Testimonial Cards Animation */
   .testimonial-card {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(10px);
     opacity: 0;
-    transform: translateY(60px);
   }
 
+  /* This class gets added when the element enters the viewport */
   .testimonial-card.animate {
-    animation: fadeUp 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+    transform: translateY(0);
+    opacity: 1;
   }
 
   /* Case Study Cards Animation */
@@ -87,11 +85,13 @@
   /* FAQ Items Animation */
   .faq-item {
     opacity: 0;
-    transform: translateY(60px);
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .faq-item.animate {
-    animation: fadeUp 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   /* Contact Form Animation */
@@ -105,14 +105,30 @@
   }
 
   /* Staggered Animation Delays */
-  .stagger-animation:nth-child(1) { animation-delay: 0s; }
-  .stagger-animation:nth-child(2) { animation-delay: 0.1s; }
-  .stagger-animation:nth-child(3) { animation-delay: 0.2s; }
-  .stagger-animation:nth-child(4) { animation-delay: 0.3s; }
-  .stagger-animation:nth-child(5) { animation-delay: 0.4s; }
-  .stagger-animation:nth-child(6) { animation-delay: 0.5s; }
-  .stagger-animation:nth-child(7) { animation-delay: 0.6s; }
-  .stagger-animation:nth-child(8) { animation-delay: 0.7s; }
+  .stagger-animation:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .stagger-animation:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .stagger-animation:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  .stagger-animation:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  .stagger-animation:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+  .stagger-animation:nth-child(6) {
+    animation-delay: 0.5s;
+  }
+  .stagger-animation:nth-child(7) {
+    animation-delay: 0.6s;
+  }
+  .stagger-animation:nth-child(8) {
+    animation-delay: 0.7s;
+  }
 }
 
 @keyframes lineIn {
@@ -129,73 +145,28 @@
   }
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Hero Section */
 .hero-gradient {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
 }
 
-/* Service Cards */
-.service-card {
-  @apply bg-white rounded-xl p-8 transition-all duration-500 hover:shadow-2xl relative overflow-hidden;
-}
-
-.service-icon {
-  @apply relative z-10 transition-all duration-500;
-}
-
-.service-card::before {
-  content: '';
-  @apply absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary to-secondary opacity-0 transition-opacity duration-500;
-}
-
-.service-card:hover::before {
-  @apply opacity-5;
-}
-
-.service-card:hover .service-icon {
-  transform: rotateY(360deg);
-}
-
 /* Client Logos */
-@keyframes scroll {
+/* @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(calc(-180px * 10 - 3rem * 10));
   }
-}
+} */
 
-
-@keyframes fadeRight {
-  from {
-    opacity: 0;
-    transform: translateX(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.fade-right-element {
-  opacity: 0;
-  transform: translateX(60px);
-}
-
-.fade-right-element.animate {
-  animation: fadeRight 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+/* Ensure all three visible slides fade in */
+.swiper-slide-active .fade-right-element,
+.swiper-slide-visible .fade-right-element,
+.swiper-slide-prev .fade-right-element,
+.swiper-slide-next .fade-right-element {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* Update aspect ratio for work cards */
@@ -206,15 +177,75 @@
 .blog-list-card.group:hover .blog-title {
   background-position: 0;
 }
-
+.service-card:hover .blog-title {
+  background-position: 0;
+}
 .blog-title {
-  background-image: linear-gradient(-90deg, #000, #000 49.99%, #2563eb 50%, #2563eb);
+  background-image: linear-gradient(
+    -90deg,
+    #000,
+    #000 49.99%,
+    #2563eb 50%,
+    #2563eb
+  );
   background-position: 100%;
   background-repeat: no-repeat;
   background-size: 200%;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   -webkit-text-fill-color: transparent;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   -webkit-background-clip: text;
+}
+
+/* Initial state: elements are hidden */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* When the element comes into view and is animated */
+.animate-on-scroll.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+.stagger-animation {
+  animation: stagger 0.5s ease-out forwards;
+}
+
+@keyframes stagger {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scroll-reverse {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-\[scroll_50s_linear_infinite\] {
+  animation: scroll 50s linear infinite;
+  will-change: transform;
+}
+
+.animate-\[scroll_50s_linear_infinite_reverse\] {
+  animation: scroll-reverse 50s linear infinite;
+  will-change: transform;
 }

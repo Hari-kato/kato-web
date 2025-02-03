@@ -1,0 +1,79 @@
+.contact-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+}
+
+.contact-hero .heading-highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.contact-hero .heading-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  opacity: 0;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+.contact-hero .heading-highlight.animate::after {
+  animation: lineIn 1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+
+.contact-hero .fade-up-element {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.contact-hero .fade-up-element.animate {
+  animation: fadeUp 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+.fade-up-element {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.fade-up-element.animate {
+  animation: fadeUp 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+@keyframes lineIn {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
