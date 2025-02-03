@@ -15,7 +15,7 @@ interface WorkCardProps {
 
 export default function WorkCard({ work }: WorkCardProps) {
   return (
-    <div className="bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl h-[500px]">
+    <div className="bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl h-full flex flex-col">
       <Link href={work.link} className="block group h-full">
         <div className="relative aspect-video overflow-hidden">
           <img
@@ -30,18 +30,19 @@ export default function WorkCard({ work }: WorkCardProps) {
             </div>
           </div>
         </div>
-        <div className="p-8">
+        <div className="p-8 flex flex-col flex-grow">
           <span className="text-sm text-[#6366F1] font-medium">
             {work.category}
           </span>
-          <h3 className="text-xl font-bold mt-2 mb-4 text-gray-900 group-hover:text-[#4361EE] transition-colors duration-300">
+          <h3 className="text-xl font-bold mt-2 mb-4 text-gray-900 group-hover:text-[#1f72b7] transition-colors duration-300">
             {work.title}
           </h3>
-          <p className="text-gray-600 text-base">
+          <p className="text-gray-600 text-base mb-6 mt-4">
             {work.description}
           </p>
         </div>
       </Link>
+      <div className="h-4"></div>
     </div>
   );
 }

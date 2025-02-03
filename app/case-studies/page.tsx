@@ -1,23 +1,24 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
 import ServicesHero from '@/components/case-studies/ServicesHero';
 import FilterTabs from '@/components/case-studies/FilterTabs';
 import CaseStudyCard from '@/components/case-studies/CaseStudyCard';
-import { categories, caseStudies } from '@/data/caseStudies';
+import { categories, caseStudies } from '@/data/caseStudies/case-studies';
 
 export default function ServicesPage() {
-  const [selectedCategory, setSelectedCategory] = useState("All Projects");
+  const [selectedCategory, setSelectedCategory] = useState('All Projects');
 
-  const filteredCaseStudies = selectedCategory === "All Projects"
-    ? caseStudies
-    : caseStudies.filter(study => study.category === selectedCategory);
+  const filteredCaseStudies =
+    selectedCategory === 'All Projects'
+      ? caseStudies
+      : caseStudies.filter((study) => study.category === selectedCategory);
 
   return (
     <main className="min-h-screen bg-white pt-20">
       <ServicesHero />
-      
-      <FilterTabs 
+
+      <FilterTabs
         categories={categories}
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 interface FilterTabsProps {
   categories: string[];
@@ -6,10 +6,10 @@ interface FilterTabsProps {
   onCategoryChange: (category: string) => void;
 }
 
-export default function FilterTabs({ 
-  categories, 
-  selectedCategory, 
-  onCategoryChange 
+export default function FilterTabs({
+  categories,
+  selectedCategory,
+  onCategoryChange,
 }: FilterTabsProps) {
   return (
     <section className="mb-16">
@@ -21,7 +21,7 @@ export default function FilterTabs({
               onClick={() => onCategoryChange(category)}
               className={`px-8 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
                 selectedCategory === category
-                  ? 'bg-[#4CAF50] text-white'
+                  ? 'bg-[#1f72b7] text-white'
                   : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
               }`}
             >

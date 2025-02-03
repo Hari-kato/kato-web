@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
@@ -8,6 +8,11 @@ interface RelatedPostsProps {
 }
 
 export default function RelatedPosts({ posts }: RelatedPostsProps) {
+  // Check if there are no posts, return null if true
+  if (!posts || posts.length === 0) {
+    return null;
+  }
+
   return (
     <div className="bg-gray-50 rounded-xl p-6">
       <h3 className="text-xl font-bold mb-6">Related Articles</h3>
@@ -23,7 +28,10 @@ export default function RelatedPosts({ posts }: RelatedPostsProps) {
             </div>
             <div>
               <h4 className="font-medium mb-2 line-clamp-2">
-                <Link href={post.link} className="hover:text-[#4361EE] transition-colors">
+                <Link
+                  href={post.link}
+                  className="hover:text-[#1f72b7] transition-colors"
+                >
                   {post.title}
                 </Link>
               </h4>

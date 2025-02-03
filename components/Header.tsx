@@ -1,84 +1,44 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import {
-  Menu,
-  X,
-  Code2,
-  Cpu,
-  Camera,
-  Smartphone,
-  Globe,
-  BrainCircuit as Circuit,
-  Palette,
-} from 'lucide-react';
+import { Menu, X, Code2 } from 'lucide-react';
 import { blogPosts, featuredPost } from '@/data/blogs';
-
-const menuItems = [
-  { label: 'Services', href: '/services', hasDropdown: true },
-  { label: 'Case Study', href: '/case-studies' },
-  { label: 'Company', href: '#' },
-  { label: 'Blog', href: '/blogs' },
-  { label: 'Careers', href: '/careers' },
-];
-
-const servicesLeft = [
-  {
-    icon: <Cpu className="w-5 h-5 text-blue-500" />,
-    title: 'Generative AI',
-    description: 'Transform your business with cutting-edge AI solutions',
-    href: '/services/generative-ai',
-  },
-  {
-    icon: <Camera className="w-5 h-5 text-red-500" />,
-    title: 'Video Analytics',
-    description: 'Gain insights from video data with advanced analytics',
-    href: '/services/video-analytics',
-  },
-  {
-    icon: <Smartphone className="w-5 h-5 text-green-500" />,
-    title: 'Mobile App Development',
-    description: 'Create powerful native and cross-platform apps',
-    href: '/services/mobile-development',
-  },
-];
-
-const servicesRight = [
-  {
-    icon: <Globe className="w-5 h-5 text-indigo-500" />,
-    title: 'Web App Development',
-    description: 'Build modern, scalable web applications',
-    href: '/services/web-development',
-  },
-  {
-    icon: <Circuit className="w-5 h-5 text-orange-500" />,
-    title: 'IoT Development',
-    description: 'Connect and manage smart devices seamlessly',
-    href: '/services/iot-development',
-  },
-  {
-    icon: <Palette className="w-5 h-5 text-blue-500" />,
-    title: 'UI/UX Design',
-    description: 'Create intuitive and engaging user experiences',
-    href: '/services/ui-ux-design',
-  },
-];
+import {
+  menuItems,
+  servicesLeft,
+  servicesRight,
+} from '@/data/header.ts/menuItems';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
+  // Handle scroll state without using window.addEventListener
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Initial scroll state check
+    handleScroll();
+
+    // Add the scroll event listener directly
+    const onScroll = () => {
+      handleScroll();
+    };
+
+    // Monitor scroll position using `scroll` event
+    window.onscroll = onScroll;
+
+    return () => {
+      // Clean up the scroll event listener
+      window.onscroll = null;
+    };
   }, []);
 
   // Get background color based on the current page
@@ -87,7 +47,7 @@ export default function Header() {
       return 'bg-gradient-to-br from-[#4361EE] to-[#6366F1]';
     }
     if (pathname === '/careers') {
-      return 'bg-gradient-to-br from-[#4CAF50] to-[#45a049]';
+      return 'bg-gradient-to-br from-[#4361EE] to-[#6366F1]';
     }
     if (pathname === '/case-studies') {
       return 'bg-gradient-to-br from-[#4361EE] to-[#6366F1]';
@@ -95,10 +55,16 @@ export default function Header() {
     if (pathname === '/blogs') {
       return 'bg-gradient-to-br from-[#4361EE] to-[#6366F1]';
     }
+    if (pathname === '/about-us') {
+      return 'bg-gradient-to-br from-[#4361EE] to-[#6366F1]';
+    }
+    if (pathname === '/contact-us') {
+      return 'bg-gradient-to-br from-[#4361EE] to-[#6366F1]';
+    }
 
     // Check if it's a blog post page
     if (pathname.startsWith('/blogs/')) {
-      const slug = pathname.split('/').pop();
+      const slug = searchParams.get('slug');
       const allPosts = [featuredPost, ...blogPosts];
       const post = allPosts.find((post) => post.link.split('/').pop() === slug);
       if (post?.color) {
@@ -207,7 +173,7 @@ export default function Header() {
               </div>
             ))}
             <Link
-              href="#contact"
+              href="/contact-us"
               className={`px-6 py-2.5 rounded-full font-medium transition-colors duration-200 ${
                 isScrolled
                   ? 'bg-primary text-white hover:bg-primary-dark'

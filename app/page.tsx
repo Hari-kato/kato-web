@@ -1,5 +1,3 @@
-"use client";
-
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import Clients from '@/components/Clients';
@@ -8,6 +6,7 @@ import Testimonials from '@/components/Testimonials';
 import Blogs from '@/components/Blogs';
 import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
+import { faqs } from '@/data/home/faqs';
 
 export default function Home() {
   return (
@@ -20,7 +19,7 @@ export default function Home() {
       <Works />
       <Testimonials />
       <Blogs />
-      <FAQ />
+      <FAQ faqs={faqs} />
       <Contact />
     </div>
   );

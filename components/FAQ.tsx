@@ -1,118 +1,98 @@
-"use client";
-
-import { useEffect, useRef, useState } from 'react';
+'use client';
 import { Plus, Minus } from 'lucide-react';
-import { faqs } from '@/data/faqs';
+import Headings from './ui/Heading';
+import { headings } from '@/data/home/faqs';
+import AnimateOnScroll from './ui/animateOnScroll';
 
-export default function FAQ() {
-  const [openIndexes, setOpenIndexes] = useState<number[]>([0]);
-  const headingRef = useRef(null);
-  const faqItemsRef = useRef<(HTMLDivElement | null)[]>([]);
+interface FAQ {
+  question: string;
+  answer: string;
+}
 
-  useEffect(() => {
-    const headingObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        }
-      },
-      { threshold: 0.5 }
-    );
+interface FAQProps {
+  faqs?: FAQ[];
+}
 
-    const itemObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate', 'stagger-animation');
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
+export default function FAQ({ faqs = [] }: FAQProps) {
+  const toggleFaq = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const button = event.currentTarget;
+    const content = button.nextElementSibling as HTMLElement;
+    const plusIcon = button.querySelector('.icon-plus') as HTMLElement;
+    const minusIcon = button.querySelector('.icon-minus') as HTMLElement;
 
-    if (headingRef.current) {
-      headingObserver.observe(headingRef.current);
+    const isOpen = button.getAttribute('data-open') === 'true';
+
+    if (isOpen) {
+      button.setAttribute('data-open', 'false');
+      content.style.maxHeight = '0px';
+      plusIcon.style.display = 'block';
+      minusIcon.style.display = 'none';
+    } else {
+      button.setAttribute('data-open', 'true');
+      content.style.maxHeight = `${content.scrollHeight}px`;
+      plusIcon.style.display = 'none';
+      minusIcon.style.display = 'block';
     }
-
-    faqItemsRef.current.forEach((item) => {
-      if (item) {
-        itemObserver.observe(item);
-      }
-    });
-
-    return () => {
-      if (headingRef.current) {
-        headingObserver.unobserve(headingRef.current);
-      }
-      faqItemsRef.current.forEach((item) => {
-        if (item) {
-          itemObserver.unobserve(item);
-        }
-      });
-    };
-  }, []);
-
-  const toggleFaq = (index: number) => {
-    setOpenIndexes(prev => 
-      prev.includes(index)
-        ? prev.filter(i => i !== index)
-        : [...prev, index]
-    );
   };
 
   return (
     <section className="py-24 bg-gray-50 w-full">
       <div className="max-w-7xl mx-auto px-4">
-      <div className="text-center mb-16">
-        <div className="inline-block px-4 py-2 bg-[#F0F1FF] rounded-full mb-4">
-          <span className="text-sm font-medium text-[#6366F1]">COMMON QUESTIONS</span>
+        <div className="text-center mb-16">
+          <Headings
+            tag={headings.tag}
+            title={headings.title}
+            subtitle={headings.subtitle}
+          />
         </div>
-        <h2 className="text-[2.71rem] font-bold mb-4">
-          Need more <span ref={headingRef} className="heading-highlight">information</span>?
-        </h2>
-        <p className="text-gray-600 text-lg">
-          Find answers to frequently asked questions about our services
-        </p>
-      </div>
 
-      <div className="w-full">
-        <div className="max-w-[1600px] mx-auto">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                ref={(el) => (faqItemsRef.current[index] = el)}
-                className="faq-item bg-white rounded-lg shadow-sm overflow-hidden"
-                style={{ alignSelf: 'start' }}
-              >
-                <button
-                  onClick={() => toggleFaq(index)}
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
-                >
-                  <h3 className="text-lg font-semibold text-gray-900 pr-8">
-                    {faq.question}
-                  </h3>
-                  <div className="ml-4 flex-shrink-0">
-                    {openIndexes.includes(index) ? (
-                      <Minus className="w-6 h-6 text-[#4CAF50]" />
-                    ) : (
-                      <Plus className="w-6 h-6 text-[#4CAF50]" />
-                    )}
-                  </div>
-                </button>
-                <div
-                  className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
-                    openIndexes.includes(index) ? 'max-h-[1000px] py-4' : 'max-h-0'
-                  }`}
-                >
-                  <p className="text-gray-600 leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </div>
-              </div>
-            ))}
+        <div className="w-full">
+          <div className="max-w-[1600px] mx-auto">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+              {faqs.map((faq, index) => {
+                const isFirst = index === 0;
+                return (
+                  <AnimateOnScroll key={index}>
+                    <div
+                      className="faq-item bg-white rounded-lg shadow-sm overflow-hidden animate-on-scroll"
+                      style={{ alignSelf: 'start' }}
+                    >
+                      <button
+                        onClick={toggleFaq}
+                        data-open={isFirst ? 'true' : 'false'}
+                        className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                      >
+                        <h3 className="text-lg font-semibold text-gray-900 pr-8">
+                          {faq.question}
+                        </h3>
+                        <div className="ml-4 flex-shrink-0">
+                          <Plus
+                            className={`w-6 h-6 text-[#FF6B6B] icon-plus ${
+                              isFirst ? 'hidden' : ''
+                            }`}
+                          />
+                          <Minus
+                            className={`w-6 h-6 text-[#FF6B6B] icon-minus ${
+                              isFirst ? '' : 'hidden'
+                            }`}
+                          />
+                        </div>
+                      </button>
+                      <div
+                        className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${
+                          isFirst ? 'max-h-screen' : 'max-h-0'
+                        }`}
+                      >
+                        <p className="text-gray-600 leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  </AnimateOnScroll>
+                );
+              })}
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </section>
