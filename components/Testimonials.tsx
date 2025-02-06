@@ -1,10 +1,10 @@
-import { testimonials, headings } from '@/data/home/testimonials';
-import Headings from './ui/Heading';
-import AnimateOnScroll from './ui/animateOnScroll';
+import { testimonials, headings } from "@/data/home/testimonials";
+import Headings from "./ui/Heading";
+import AnimateOnScroll from "./ui/animateOnScroll";
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-14 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <Headings

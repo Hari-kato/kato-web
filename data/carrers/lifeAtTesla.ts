@@ -19,3 +19,9 @@ export const lifeAtTeslaImages = [
   // Landscape brainstorming
   'https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&q=80',
 ];
+export const headings = {
+  tag: 'Our Life style',
+  title: ['Life at ', 'Tesla'],
+  subtitle:"Guided by innovation and driven by excellence, we're committed to transforming businesses through cutting-edge technology solutions."
+  
+};

@@ -1,16 +1,16 @@
-import Headings from '../ui/Heading';
-import { backgroundImage, headings } from '@/data/about-us/heroSection';
+import { headings } from "@/data/about-us/heroSection";
+import { HeroHighlight } from "../ui/hero-highlight";
 
 export default function AboutHero() {
   return (
-    <section className="about-hero relative py-24 bg-gradient-to-br from-[#FF6B6B] to-[#FF8E8E]">
-      <div
-        className="absolute inset-0  bg-cover bg-center opacity-10"
-        style={{ backgroundImage: `url(${backgroundImage.imageUrl})` }}
-      ></div>
-      <div className="max-w-7xl mx-auto px-4 text-center text-white">
-        <Headings title={headings.title} subtitle={headings.subtitle} />
-      </div>
+    <section>
+      <HeroHighlight
+        containerClassName="bg-gradient-about"
+        dottedColor="bg-dot-thick-gray-400"
+        hoverColor="bg-dot-thick-slate-50"
+        title={headings.title}
+        subtitle={headings.subtitle}
+      ></HeroHighlight>
     </section>
   );
 }

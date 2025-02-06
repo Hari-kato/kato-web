@@ -45,3 +45,9 @@ export const visionMissionData = {
     }
   ]
 };
+export const headings = {
+  tag: 'Our solutions',
+  title: ['Our Vision & ', 'Mission'],
+  subtitle:"Guided by innovation and driven by excellence, we're committed to transforming businesses through cutting-edge technology solutions."
+  
+};

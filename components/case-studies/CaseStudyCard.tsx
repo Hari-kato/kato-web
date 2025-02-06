@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import AnimateOnScroll from '../ui/animateOnScroll';
@@ -43,7 +41,7 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
           </div>
           <Link
             href={study.readMoreLink}
-            className="inline-flex items-center text-[#1f72b7] hover:text-[#1f72b7] font-semibold group"
+            className="inline-flex items-center text-primary  font-semibold group"
           >
             Read More
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

@@ -4,25 +4,25 @@ import AnimateOnScroll from '../ui/animateOnScroll';
 
 export default function ContactDetails() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 address-block-color">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12">
           {/* General Enquiries */}
           <AnimateOnScroll>
             <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300">
               <h2 className="text-3xl font-bold mb-8">
-                General <span className="text-[#1f72b7]">Enquiries</span>
+                General <span className="text-primary">Enquiries</span>
               </h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#1f72b7]/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-[#1f72b7]" />
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Email</h3>
                     <a
                       href={`mailto:${contactDetails.general.email}`}
-                      className="text-gray-600 hover:text-[#1f72b7]"
+                      className="text-gray-600 hover:text-primary-dark"
                     >
                       {contactDetails.general.email}
                     </a>
@@ -30,14 +30,14 @@ export default function ContactDetails() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#1f72b7]/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-[#1f72b7]" />
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Phone</h3>
                     <a
                       href={`tel:${contactDetails.general.phone}`}
-                      className="text-gray-600 hover:text-[#1f72b7]"
+                      className="text-gray-600 hover:text-primary-dark"
                     >
                       {contactDetails.general.phone}
                     </a>
@@ -45,8 +45,8 @@ export default function ContactDetails() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#1f72b7]/10 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-[#1f72b7]" />
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-2">
@@ -65,18 +65,18 @@ export default function ContactDetails() {
           <AnimateOnScroll>
             <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300">
               <h2 className="text-3xl font-bold mb-8">
-                HR <span className="text-[#1f72b7]">Enquiries</span>
+                HR <span className="text-primary">Enquiries</span>
               </h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#1f72b7]/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-[#1f72b7]" />
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Email</h3>
                     <a
                       href={`mailto:${contactDetails.hr.email}`}
-                      className="text-gray-600 hover:text-[#1f72b7]"
+                      className="text-gray-600 hover:text-primary-dark"
                     >
                       {contactDetails.hr.email}
                     </a>
@@ -84,14 +84,14 @@ export default function ContactDetails() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#1f72b7]/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-[#1f72b7]" />
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Phone</h3>
                     <a
                       href={`tel:${contactDetails.hr.phone}`}
-                      className="text-gray-600 hover:text-[#1f72b7]"
+                      className="text-gray-600 hover:text-primary-dark"
                     >
                       {contactDetails.hr.phone}
                     </a>
@@ -99,8 +99,8 @@ export default function ContactDetails() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#1f72b7]/10 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-[#1f72b7]" />
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-2">

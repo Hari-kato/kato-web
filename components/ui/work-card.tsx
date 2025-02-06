@@ -34,7 +34,7 @@ export default function WorkCard({ work }: WorkCardProps) {
           <span className="text-sm text-[#6366F1] font-medium">
             {work.category}
           </span>
-          <h3 className="text-xl font-bold mt-2 mb-4 text-gray-900 group-hover:text-[#1f72b7] transition-colors duration-300">
+          <h3 className="text-xl font-bold mt-2 mb-4 text-gray-900 group-hover:text-[#4361EE] transition-colors duration-300 line-clamp-2">
             {work.title}
           </h3>
           <p className="text-gray-600 text-base mb-6 mt-4">
@@ -42,7 +42,6 @@ export default function WorkCard({ work }: WorkCardProps) {
           </p>
         </div>
       </Link>
-      <div className="h-4"></div>
     </div>
   );
 }

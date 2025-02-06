@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import BlogContent from './BlogContent';
@@ -98,25 +96,20 @@ export default function BlogDetailsContent({
 
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div
-          className={`grid gap-12 ${
-            relatedPosts.length > 0 ? 'lg:grid-cols-3' : 'lg:grid-cols-1'
-          }`}
+          className={`grid gap-12 lg:grid-cols-3`}
         >
           {/* Main Content */}
           <div
-            className={`lg:col-span-${
-              relatedPosts.length > 0 ? '2' : '1'
-            } mx-auto`}
+            className={`lg:col-span-2 mx-auto`}
           >
             <BlogContent content={content} />
           </div>
 
-          {/* Sidebar - Only render RelatedPosts if there are related posts */}
-          {relatedPosts.length > 0 && (
+          {/* {relatedPosts.length > 0 && ( */}
             <aside className="space-y-8">
               <RelatedPosts posts={relatedPosts} />
             </aside>
-          )}
+          {/* )} */}
         </div>
       </div>
     </main>

@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import AnimateOnScroll from '../ui/animateOnScroll';
@@ -49,7 +47,7 @@ function BlogCard({ post, compact = false }: BlogCardProps) {
             <h3 className="text-xl font-bold mb-3 blog-title text-gray-900">
               {post.title}
             </h3>
-            <p className="text-gray-600 mb-4 line-clamp-4 flex-1">
+            <p className="text-gray-600 mb-4 flex-1 line-clamp-2 md:line-clamp-3">
               {post.excerpt}
             </p>
             <span className="inline-flex items-center text-[#2563eb] font-medium transition-colors mt-auto">

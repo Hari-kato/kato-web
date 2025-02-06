@@ -1,13 +1,30 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Code2, Mail, Phone } from 'lucide-react';
-import { footerLinks } from '@/data/footer/footerlinks';
-import { socialLinks } from '@/data/footer/socialLinks';
+import Link from "next/link";
+import Image from "next/image";
+import { Code2, Mail, Phone } from "lucide-react";
+import { footerLinks } from "@/data/footer/footerlinks";
+import { socialLinks } from "@/data/footer/socialLinks";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white pt-16 pb-8">
+    <footer className="relative bg-primary text-white pt-16 pb-8">
+      {/* Background Images */}
+      <Image
+        src="/downwave.svg"
+        alt="Down Wave"
+        width={1000}
+        height={100}
+        className="absolute bottom-0 left-0 "
+      />
+      <Image
+        src="/upwave.svg"
+        alt="Up Wave"
+        width={1000}
+        height={100}
+        className="absolute top-0 right-0  filter brightness-30"
+      />
+
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-12 mb-16">
           {/* Logo Section */}
@@ -18,6 +35,18 @@ export default function Footer() {
             <p className="text-secondary-light text-sm mb-4">
               Delivering excellence, righteously
             </p>
+            <div className="flex space-x-6">
+              {socialLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="text-secondary-light hover:text-white transition-colors"
+                  aria-label={link.label}
+                >
+                  <link.icon className="w-5 h-5" />
+                </Link>
+              ))}
+            </div>
           </div>
 
           {/* Company Links */}
@@ -120,25 +149,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-8 border-t border-secondary-light/20">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-secondary-light text-sm">
-              Copyright 2011-{new Date().getFullYear()} Tesla All rights
-              reserved.
-            </p>
-            <div className="flex space-x-6">
-              {socialLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="text-secondary-light hover:text-white transition-colors"
-                  aria-label={link.label}
-                >
-                  <link.icon className="w-5 h-5" />
-                </Link>
-              ))}
-            </div>
-          </div>
+      </div>
+      <div className="pt-8 border-t border-secondary-light/20">
+        <div className="flex justify-center items-center space-y-4 md:space-y-0">
+          <p className="text-secondary-light text-center text-sm">
+            Copyright 2011-{new Date().getFullYear()} Tesla All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

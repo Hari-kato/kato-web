@@ -1,5 +1,5 @@
 export const headings = {
-  title: ['About', 'Tesla'],
+  title: ['About Tesla',],
   subtitle:
     "Transforming businesses through innovative technology solutions since 2002. We're more than just a tech company - we're your digital transformation partner.",
 };

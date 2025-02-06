@@ -1,5 +1,5 @@
 export const headings = {
-  title: ['Become the next version of', '"you"', 'By working with us'],
+  title: ['Become the next version of "you" By working with us'],
   subtitle:
     'Explore your passion, unleash your creativity, unbox your potential and become the innovator your bright future deserves.',
 };

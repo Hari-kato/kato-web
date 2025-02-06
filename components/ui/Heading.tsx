@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 interface HeadingsProps {
   tag?: string;
   title: string[];
-  subtitle: string;
-  alignment?: 'center' | 'left';
+  subtitle?: string;
+  alignment?: "center" | "left";
 }
 
 export default function Headings({
@@ -15,23 +15,23 @@ export default function Headings({
   subtitle,
   alignment,
 }: HeadingsProps) {
-  const [heading1 = '', heading2 = '', heading3 = ''] = title;
+  const [heading1 = "", heading2 = "", heading3 = ""] = title;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
+            entry.target.classList.add("animate");
           } else {
-            entry.target.classList.remove('animate');
+            entry.target.classList.remove("animate");
           }
         });
       },
       { threshold: 0.2 }
     );
 
-    const elements = document.querySelectorAll('.heading-highlight');
+    const elements = document.querySelectorAll(".heading-highlight");
     elements.forEach((el) => observer.observe(el));
 
     return () => {
@@ -40,7 +40,7 @@ export default function Headings({
   }, []);
 
   return (
-    <div className={`mb-16 ${alignment ? `text-${alignment}` : ''}`}>
+    <div className={`mb-16 ${alignment ? `text-${alignment}` : ""}`}>
       {tag && (
         <div className="inline-block px-4 py-2 bg-[#F0F1FF] rounded-full mb-4">
           <span className="text-sm font-medium text-[#6366F1]">{tag}</span>
@@ -53,7 +53,7 @@ export default function Headings({
         {heading3 && <span> {heading3}</span>}
       </h2>
 
-      <p className={`mb-16 ${alignment ? `text-${alignment}` : ''}`}>
+      <p className={`mb-4 md:mb-16 ${alignment ? `text-${alignment}` : ""}`}>
         {subtitle}
       </p>
     </div>

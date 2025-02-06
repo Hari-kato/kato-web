@@ -1,12 +1,10 @@
-'use client';
-
 // Define the Section type with `content` as a required string
 interface Section {
   title: string;
   content: string; // Make content required here
   lists?: {
     // Optional lists
-    type: 'ul' | 'ol';
+    type: "ul" | "ol";
     items: string[];
   }[];
   images?: {
@@ -42,12 +40,12 @@ export default function BlogContent({ content }: BlogContentProps) {
           </h2>
 
           <div className="text-lg leading-relaxed text-gray-600 mb-6 whitespace-pre-wrap">
-            {section.content} {/* content is now required */}
+            {section.content}
           </div>
 
           {section.lists?.map((list, listIndex) => (
             <div key={listIndex} className="mb-6">
-              {list.type === 'ul' ? (
+              {list.type === "ul" ? (
                 <ul className="list-disc pl-6 space-y-2">
                   {list.items.map((item, itemIndex) => (
                     <li key={itemIndex} className="text-gray-600">
@@ -72,7 +70,7 @@ export default function BlogContent({ content }: BlogContentProps) {
               <img
                 src={image.url}
                 alt={image.caption}
-                className="w-full rounded-lg shadow-md"
+                className="w-full h-[300px] object-cover rounded-lg shadow-md"
               />
               {image.caption && (
                 <figcaption className="mt-2 text-center text-sm text-gray-500">

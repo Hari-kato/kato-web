@@ -1,18 +1,19 @@
-import { ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
-import { openings } from '@/data/carrers/openings';
-import AnimateOnScroll from '../ui/animateOnScroll';
+import { ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
+import { openings } from "@/data/carrers/openings";
+import AnimateOnScroll from "../ui/animateOnScroll";
+import AnimatedButton from "../ui/AnimatedButton";
 
 export default function Openings() {
   const toggleJobDetails = (event: React.MouseEvent<HTMLButtonElement>) => {
     const button = event.currentTarget;
-    const jobCard = button.closest('.job-card') as HTMLElement;
-    const details = jobCard?.querySelector('.job-details') as HTMLElement;
+    const jobCard = button.closest(".job-card") as HTMLElement;
+    const details = jobCard?.querySelector(".job-details") as HTMLElement;
 
     if (jobCard && details) {
-      const isOpen = jobCard.getAttribute('data-open') === 'true';
+      const isOpen = jobCard.getAttribute("data-open") === "true";
 
-      jobCard.setAttribute('data-open', isOpen ? 'false' : 'true');
-      details.style.display = isOpen ? 'none' : 'block';
+      jobCard.setAttribute("data-open", isOpen ? "false" : "true");
+      details.style.display = isOpen ? "none" : "block";
     }
   };
 
@@ -32,7 +33,7 @@ export default function Openings() {
             </p>
             <p className="text-lg text-gray-300 mt-4">
               To apply for any of the below positions, email your updated
-              resume/CV to{' '}
+              resume/CV to{" "}
               <a
                 href="mailto:careers@tesla.com"
                 className="text-[#1f72b7] hover:underline"
@@ -79,10 +80,12 @@ export default function Openings() {
                         <span className="hidden hide-text">Hide Details</span>
                         <ChevronUp className="ml-2 w-4 h-4 hide-icon hidden" />
                       </button>
-                      <button className="flex items-center justify-center px-6 py-2 bg-[#1f72b7] rounded-full text-white hover:bg-[#3730A3] transition-colors duration-300">
-                        Apply Now
-                        <ArrowRight className="ml-2 w-4 h-4" />
-                      </button>
+
+                      <AnimatedButton
+                        label="Apply Now"
+                        icon={<ArrowRight className="w-5 h-5 text-white" />}
+                        customClass="px-6 py-2"
+                      />
                     </div>
                   </div>
 

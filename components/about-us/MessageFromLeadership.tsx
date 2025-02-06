@@ -1,16 +1,19 @@
-import { Quote } from 'lucide-react';
-import { leadershipMessage } from '@/data/about-us/leadership';
-import AnimateOnScroll from '../ui/animateOnScroll';
+import { Quote } from "lucide-react";
+import { headings, leadershipMessage } from "@/data/about-us/leadership";
+import AnimateOnScroll from "../ui/animateOnScroll";
+import Headings from "../ui/Heading";
 
 export default function MessageFromLeadership() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-14 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <AnimateOnScroll>
-            <h2 className="text-4xl font-bold mb-6">
-              Message from <span className="text-[#FF6B6B]">Leadership</span>
-            </h2>
+            <Headings
+              tag={headings.tag}
+              title={headings.title}
+              subtitle={headings.subtitle}
+            />
           </AnimateOnScroll>
         </div>
 
@@ -23,7 +26,7 @@ export default function MessageFromLeadership() {
                 alt={leadershipMessage.name}
                 className="rounded-lg shadow-lg w-full"
               />
-              <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-[#FF6B6B] rounded-lg flex items-center justify-center">
+              <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-primary rounded-lg flex items-center justify-center">
                 <Quote className="w-10 h-10 text-white" />
               </div>
             </div>
@@ -36,7 +39,7 @@ export default function MessageFromLeadership() {
                 "{leadershipMessage.message}"
               </blockquote>
 
-              <div className="border-l-4 border-[#FF6B6B] pl-6">
+              <div className="border-l-4 border-primary pl-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   {leadershipMessage.name}
                 </h3>
@@ -46,8 +49,8 @@ export default function MessageFromLeadership() {
               <div className="mt-8 space-y-4">
                 {leadershipMessage.highlights.map((highlight, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-[#FF6B6B]/10 flex items-center justify-center flex-shrink-0 mt-1">
-                      <div className="w-2 h-2 rounded-full bg-[#FF6B6B]" />
+                    <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 mt-1">
+                      <div className="w-2 h-2 rounded-full bg-primary" />
                     </div>
                     <span className="text-gray-600">{highlight}</span>
                   </div>
