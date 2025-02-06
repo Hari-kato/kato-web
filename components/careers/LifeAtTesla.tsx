@@ -1,14 +1,13 @@
-import { lifeAtTeslaImages } from '@/data/carrers/lifeAtTesla';
+import { headings, lifeAtTeslaImages } from '@/data/carrers/lifeAtTesla';
 import { clients } from '@/data/home/clients';
+import Headings from '../ui/Heading';
 
 export default function LifeAtTesla() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-14 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 mb-16">
-        <div className="text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            Life at <span className="text-[#1f72b7]">Tesla</span>
-          </h2>
+        <div className="text-center mb-16">
+           <Headings tag={headings.tag} title={headings.title} subtitle={headings.subtitle}/>
         </div>
       </div>
 

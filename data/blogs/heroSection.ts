@@ -1,5 +1,5 @@
 export const headings = {
-  title: ['Insights &', 'Resources'],
+  title: ['Insights & Resources'],
   subtitle:
     'Stay updated with the latest trends, insights, and best practices in software development and technology.',
 };

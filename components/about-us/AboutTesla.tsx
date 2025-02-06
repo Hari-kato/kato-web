@@ -1,10 +1,10 @@
-import { aboutData, aboutImage } from '@/data/about-us/about';
-import { LightbulbIcon, Zap } from 'lucide-react';
-import AnimateOnScroll from '../ui/animateOnScroll';
+import { aboutData, aboutImage } from "@/data/about-us/about";
+import { LightbulbIcon, Zap } from "lucide-react";
+import AnimateOnScroll from "../ui/animateOnScroll";
 
 export default function AboutTesla() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-14 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
@@ -24,8 +24,8 @@ export default function AboutTesla() {
               </p>
               <div className="grid gap-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#FF6B6B]/10 flex items-center justify-center flex-shrink-0">
-                    <LightbulbIcon className="w-6 h-6 text-[#FF6B6B]" />
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <LightbulbIcon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-gray-900">
@@ -38,8 +38,8 @@ export default function AboutTesla() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#FF6B6B]/10 flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-6 h-6 text-[#FF6B6B]" />
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <Zap className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-gray-900">
@@ -52,7 +52,7 @@ export default function AboutTesla() {
                 </div>
               </div>
             </div>
-          </AnimateOnScroll>{' '}
+          </AnimateOnScroll>{" "}
           {/* End wrapping with AnimateOnScroll */}
         </div>
       </div>

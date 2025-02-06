@@ -6,6 +6,7 @@ export const officeLocation = {
   timeZone: 'IST (UTC+5:30)',
 };
 export const headings = {
+  tag: 'Contact Us',
   title: ['Our', 'Location'],
   subtitle: 'Come visit us at our office',
 };

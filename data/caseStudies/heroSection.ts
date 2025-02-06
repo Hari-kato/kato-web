@@ -1,6 +1,6 @@
 export const headings = {
   tag: 'OUR WORK',
-  title: ['Transforming Ideas into', 'Digital Excellence'],
+  title: ['Transforming Ideas into Digital Excellence'],
   subtitle:
     'Explore our portfolio of innovative solutions that have helped businesses across industries achieve their digital transformation goals.',
 };

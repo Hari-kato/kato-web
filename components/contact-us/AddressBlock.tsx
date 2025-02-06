@@ -1,17 +1,19 @@
-'use client';
-
-import { MapPin } from 'lucide-react';
-import Headings from '../ui/Heading';
-import { officeLocation, headings } from '@/data/contact-us/locations';
-import AnimateOnScroll from '../ui/animateOnScroll';
+import { MapPin } from "lucide-react";
+import Headings from "../ui/Heading";
+import { officeLocation, headings } from "@/data/contact-us/locations";
+import AnimateOnScroll from "../ui/animateOnScroll";
 
 export default function AddressBlock() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-14 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <AnimateOnScroll>
           <div className="text-center mb-16">
-            <Headings title={headings.title} subtitle={headings.subtitle} />
+            <Headings
+              tag={headings.tag}
+              title={headings.title}
+              subtitle={headings.subtitle}
+            />
           </div>
         </AnimateOnScroll>
 
@@ -31,13 +33,13 @@ export default function AddressBlock() {
                   </p>
                   <div className="space-y-3">
                     <p className="text-gray-600">
-                      <span className="font-medium">Working Hours:</span>{' '}
+                      <span className="font-medium">Working Hours:</span>{" "}
                       <span className="text-[#1f72b7]">
                         {officeLocation.workingHours}
                       </span>
                     </p>
                     <p className="text-gray-600">
-                      <span className="font-medium">Time Zone:</span>{' '}
+                      <span className="font-medium">Time Zone:</span>{" "}
                       {officeLocation.timeZone}
                     </p>
                   </div>

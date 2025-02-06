@@ -7,10 +7,10 @@ import {
   Cookie,
   Award,
   Code2,
-} from 'lucide-react';
-import { funFacts, headings } from '@/data/contact-us/fun-facts';
-import Headings from '../ui/Heading';
-import AnimateOnScroll from '../ui/animateOnScroll';
+} from "lucide-react";
+import { funFacts, headings } from "@/data/contact-us/fun-facts";
+import Headings from "../ui/Heading";
+import AnimateOnScroll from "../ui/animateOnScroll";
 
 const iconComponents = {
   Coffee,
@@ -25,7 +25,7 @@ const iconComponents = {
 
 export default function FunFacts() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-14 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <AnimateOnScroll>
           <div className="text-center mb-16">
@@ -43,13 +43,13 @@ export default function FunFacts() {
               iconComponents[fact.icon as keyof typeof iconComponents];
             return (
               <AnimateOnScroll key={index}>
-                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 fade-up-element">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 fade-up-element h-full flex flex-col">
                   <div
                     className={`w-12 h-12 rounded-lg ${fact.bgColor} flex items-center justify-center mb-4`}
                   >
                     <IconComponent className={`w-6 h-6 ${fact.color}`} />
                   </div>
-                  <p className="text-gray-600">{fact.text}</p>
+                  <p className="text-gray-600 flex-grow">{fact.text}</p>
                 </div>
               </AnimateOnScroll>
             );

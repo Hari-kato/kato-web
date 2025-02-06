@@ -1,42 +1,43 @@
-'use client';
+"use client";
 
-import { ChevronDown } from 'lucide-react';
-import Headings from './ui/Heading';
-import { headings } from '@/data/home/contact';
-import { services } from '@/data/home/contact';
-import AnimateOnScroll from './ui/animateOnScroll';
+import { ChevronDown } from "lucide-react";
+import Headings from "./ui/Heading";
+import { headings } from "@/data/home/contact";
+import { services } from "@/data/home/contact";
+import AnimateOnScroll from "./ui/animateOnScroll";
+import AnimatedButton from "./ui/AnimatedButton";
 export default function Contact() {
-  let selectedService = '';
+  let selectedService = "";
   let isDropdownOpen = false;
 
   const toggleDropdown = (event: React.MouseEvent<HTMLButtonElement>) => {
     isDropdownOpen = !isDropdownOpen;
-    const dropdown = document.querySelector('.dropdown-menu') as HTMLElement;
+    const dropdown = document.querySelector(".dropdown-menu") as HTMLElement;
     if (dropdown) {
-      dropdown.style.display = isDropdownOpen ? 'block' : 'none';
+      dropdown.style.display = isDropdownOpen ? "block" : "none";
     }
 
     // Toggle Chevron icon rotation
     const chevron = event.currentTarget.querySelector(
-      '.chevron'
+      ".chevron"
     ) as HTMLElement;
     if (chevron) {
       chevron.style.transform = isDropdownOpen
-        ? 'rotate(180deg)'
-        : 'rotate(0deg)';
+        ? "rotate(180deg)"
+        : "rotate(0deg)";
     }
   };
 
   const selectService = (service: string) => {
     selectedService = service;
     isDropdownOpen = false;
-    const dropdown = document.querySelector('.dropdown-menu') as HTMLElement;
+    const dropdown = document.querySelector(".dropdown-menu") as HTMLElement;
     if (dropdown) {
-      dropdown.style.display = 'none';
+      dropdown.style.display = "none";
     }
 
     const serviceButton = document.querySelector(
-      '.service-button'
+      ".service-button"
     ) as HTMLElement;
     if (serviceButton) {
       serviceButton.textContent = service;
@@ -44,7 +45,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 bg-white">
+    <section id="contact" className="py-14 bg-white">
       <AnimateOnScroll>
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -55,7 +56,7 @@ export default function Contact() {
             />
           </div>
 
-          <form className="flex flex-col md:flex-row gap-8">
+          <form className="flex flex-col md:flex-row gap-8 mb-4">
             <div className="space-y-6 flex-1">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -122,14 +123,14 @@ export default function Contact() {
                     onClick={toggleDropdown}
                   >
                     <span className="service-text text-[#9CA3AF]">
-                      {selectedService || 'Select your service *'}
+                      {selectedService || "Select your service *"}
                     </span>
                     <ChevronDown className="chevron w-5 h-5 text-[#9CA3AF] transition-transform duration-200" />
                   </button>
 
                   <div
                     className="dropdown-menu absolute z-10 w-full mt-1 bg-white border border-[#E5E7EB] rounded-lg shadow-lg"
-                    style={{ display: 'none' }}
+                    style={{ display: "none" }}
                   >
                     {services.map((service) => (
                       <button
@@ -161,13 +162,8 @@ export default function Contact() {
           </form>
 
           {/* Submit Button */}
-          <div className="flex justify-center pt-4">
-            <button
-              type="submit"
-              className="px-16 py-4 rounded-full font-semibold text-white text-lg transition-colors duration-200 bg-[#1f72b7] hover:bg-[#3b56e0] hover:shadow-lg"
-            >
-              Submit
-            </button>
+          <div className="flex justify-center pt-8">
+            <AnimatedButton label="Submit" customClass="px-16 py-4" />
           </div>
         </div>
       </AnimateOnScroll>

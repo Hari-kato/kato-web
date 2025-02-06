@@ -1,10 +1,10 @@
-import { clients, headings } from '@/data/home/clients';
-import Headings from './ui/Heading';
-import AnimateOnScroll from './ui/animateOnScroll';
+import { clients, headings } from "@/data/home/clients";
+import Headings from "./ui/Heading";
+import AnimateOnScroll from "./ui/animateOnScroll";
 
 export default function Clients() {
   return (
-    <section className="py-20 bg-light-blue w-full overflow-hidden">
+    <section className="py-14 bg-light-blue w-full overflow-hidden">
       <AnimateOnScroll>
         <div className="text-center mb-16">
           <Headings

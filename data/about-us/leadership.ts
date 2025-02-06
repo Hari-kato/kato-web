@@ -10,3 +10,9 @@ export const leadershipMessage = {
     "Award-winning solutions and services"
   ]
 };
+export const headings = {
+  tag: 'Our Leader',
+  title: ['Message', 'From', 'Leadership'],
+  subtitle:
+    'We provide cutting-edge solutions to help businesses thrive in the digital era.',
+};

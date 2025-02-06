@@ -1,56 +1,106 @@
 export const article3 = {
-  title: 'How to Build an MVP and Raise Funding in 2024',
+  title: "How to Build an MVP and Raise Funding in 2024",
   excerpt:
-    'Facebook, TikTok, Uber, Instagram, Zoom, Spotify — today, all these big players are making a significant impact in their respective domains.',
+    "Facebook, TikTok, Uber, Instagram, Zoom, Spotify — today, all these big players are making a significant impact in their respective domains.",
   image:
-    'https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80',
-  category: 'Business Intelligence',
-  date: 'March 19, 2024',
-  author: 'Prateek Saxena',
-  link: '/blogs/mvp-development-guide',
-  color: '#4a5fe5',
+    "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80",
+  category: "Business Intelligence",
+  date: "March 19, 2024",
+  author: "Prateek Saxena",
+  link: "/blogs/mvp-development-guide",
+  color: "#4a5fe5",
   content: {
-    intro: `Video analytics uses advanced algorithms to analyse real-time video in business. It provides insights 
-    that improve efficiency, security, and decision-making. Video analytics revolutionises business 
-    operations, enhancing customer experiences and streamlining processes. It automates foot traffic 
-    monitoring and behaviour analysis while bolstering inventory control. This technology provides precise, 
-    data-driven insights and helps businesses decide faster, cut costs, and ensure safety. It protects 
-    employees and customers while driving growth and boosting profits across many industries.`,
-    title: 'Top 10 Benefits of Video Analytics in Business Management',
+    intro: `Building a Minimum Viable Product (MVP) is the foundation of a successful startup. 
+    It helps businesses validate their ideas, attract investors, and raise funding. 
+    This guide will walk you through the essential steps to build an MVP and secure funding in 2024.`,
+    title: "How to Build an MVP and Raise Funding in 2024: A Complete Guide",
     sections: [
       {
-        title: '1. Improved Security and Safety',
-        content: `Live surveillance monitoring evolves through video analytics. This technology spots unusual access, odd 
-        behaviours, and safety risks. Businesses gain a watchful eye, enhancing security and operational 
-        awareness. This system reduces reliance on human observers by ensuring immediate alerts for potential 
-        threats. Advanced features like motion detection and facial recognition can help. By fostering a secure 
-        atmosphere, businesses shield employees and patrons from threats. This approach reduces risks from 
-        theft, accidents, and on-site aggression, creating a safer environment`,
+        title: "1. What is an MVP?",
+        content: `An MVP (Minimum Viable Product) is the simplest version of your product that allows 
+        you to test core functionalities with minimal investment. It helps businesses validate market demand 
+        before committing to full-scale development.`,
+        lists: [
+          {
+            type: "ul",
+            items: [
+              "Focuses on core features",
+              "Requires minimal development effort",
+              "Collects feedback from early users",
+              "Helps secure investor interest",
+            ],
+          },
+        ],
+        images: [
+          {
+            url: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80",
+            caption: "Illustration of an MVP development process",
+          },
+        ],
       },
       {
-        title: '2. Operational Efficiency',
-        content: `Video analytics automates tasks by monitoring employee performance, customer traffic, and 
-        equipment usage. This streamlines business operations. Automation slashes manual oversight, saving 
-        time and curbing mistakes. Firms swiftly pinpoint bottlenecks by streamlining queue control and staff 
-        tracking. This tech-driven approach boosts efficiency, freeing up resources for core business tasks. This 
-        can improve workflow and optimize staffing. It also enhances resource use, speeds up decisions, and 
-        spots bottlenecks. It saves costs and improves performance.`,
+        title: "2. Steps to Build an MVP",
+        content: `Building an MVP involves several key steps. Here's a structured approach to getting started:`,
+        lists: [
+          {
+            type: "ol",
+            items: [
+              "Define the problem and target audience",
+              "Identify the core features of your product",
+              "Create wireframes and a prototype",
+              "Develop the MVP with agile methodologies",
+              "Test with early adopters and iterate based on feedback",
+            ],
+          },
+        ],
+        images: [
+          {
+            url: "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80",
+            caption: "MVP development process flowchart",
+          },
+        ],
       },
       {
-        title: '3. Customer Behaviour Insights',
-        content: `Video analytics provides insights into customer behaviour. It analyses interactions with products. It 
-        reveals foot traffic patterns, dwell times, and preferred product placements. Businesses can track how 
-        customers navigate a store. They can see which products attract the most attention and which areas 
-        have the highest engagement. These insights let companies optimize store layouts and product 
-        placements. Tailored marketing enhances the shopping journey, aligning with buyers' tastes. This 
-        personalised approach not only delights customers but also drives revenue growth.`,
+        title: "3. Raising Funding for Your MVP",
+        content: `Once your MVP is ready, the next step is to attract investors. Here are the most effective funding sources:`,
+        lists: [
+          {
+            type: "ul",
+            items: [
+              "Angel Investors and Venture Capitalists",
+              "Crowdfunding platforms like Kickstarter",
+              "Government and startup grants",
+              "Bootstrapping and self-funding",
+            ],
+          },
+        ],
+        images: [
+          {
+            url: "https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&q=80",
+            caption: "Startup team pitching their MVP to investors",
+          },
+        ],
       },
       {
-        title: '4. Improved Decision-Making',
-        content: `Video analytics gives businesses real-time data, helping them make informed decisions. Managers can 
-        quickly assess performance and address issues without waiting for reports or human observations. For 
-        example, video analytics can track store traffic and product popularity. It can also measure employee 
-        productivity and customer service quality.`,
+        title: "4. Common Mistakes to Avoid",
+        content: `Many startups fail due to common mistakes in the MVP stage. Avoid these pitfalls to increase your success chances:`,
+        lists: [
+          {
+            type: "ul",
+            items: [
+              "Overcomplicating the MVP with too many features",
+              "Ignoring user feedback and data-driven decisions",
+              "Underestimating the cost and timeline",
+              "Lack of a strong monetization strategy",
+            ],
+          },
+        ],
+        images: [
+          {
+            url: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80",
+            caption: "Startup founders discussing MVP strategy",
+          },
+        ],
       },
     ],
   },

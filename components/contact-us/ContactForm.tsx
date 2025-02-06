@@ -1,10 +1,9 @@
-'use client';
-
 import { ChevronDown } from 'lucide-react';
 import { headings } from '@/data/home/contact';
 import { services } from '@/data/contact-us/services';
 import Headings from '../ui/Heading';
 import AnimateOnScroll from '../ui/animateOnScroll';
+import AnimatedButton from '../ui/AnimatedButton';
 
 export default function ContactForm() {
   let selectedService = '';
@@ -45,7 +44,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-32 bg-white">
+    <section id="contact" className="py-12 bg-white ">
       <div className="max-w-7xl mx-auto px-4">
         <AnimateOnScroll>
           <div className="text-center mb-16">
@@ -58,7 +57,7 @@ export default function ContactForm() {
         </AnimateOnScroll>
 
         <AnimateOnScroll>
-          <form className="flex flex-col md:flex-row gap-8">
+          <form className="flex flex-col md:flex-row gap-8 mb-4">
             <div className="space-y-6 flex-1">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -165,13 +164,9 @@ export default function ContactForm() {
         </AnimateOnScroll>
 
         {/* Submit Button */}
-        <div className="flex justify-center pt-4">
-          <button
-            type="submit"
-            className="px-16 py-4 rounded-full font-semibold text-white text-lg transition-colors duration-200 bg-[#1f72b7] hover:bg-[#3b56e0] hover:shadow-lg"
-          >
-            Submit
-          </button>
+        <div className="flex justify-center pt-8 ">
+        <AnimatedButton  label="Submit" customClass='px-16 py-4' />
+
         </div>
       </div>
     </section>

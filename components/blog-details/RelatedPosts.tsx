@@ -1,17 +1,14 @@
-'use client';
-
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 
 interface RelatedPostsProps {
   posts: any[];
 }
 
 export default function RelatedPosts({ posts }: RelatedPostsProps) {
-  // Check if there are no posts, return null if true
-  if (!posts || posts.length === 0) {
-    return null;
-  }
+  // // Check if there are no posts, return null if true
+  // if (!posts || posts.length === 0) {
+  //   return null;
+  // }
 
   return (
     <div className="bg-gray-50 rounded-xl p-6">
