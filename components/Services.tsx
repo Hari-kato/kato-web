@@ -29,7 +29,7 @@ export default function Services() {
                   <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
                     {service.description}
                   </p>
-                  <p className="text-primary font-semibold hover:text-[#1f72b7] transition-colors duration-300">
+                  <p className="text-primary font-semibold hover:text-primary-dark transition-colors duration-300">
                     Learn more
                   </p>
                 </div>

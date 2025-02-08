@@ -4,12 +4,12 @@ import AnimateOnScroll from '../ui/animateOnScroll';
 
 export default function ContactDetails() {
   return (
-    <section className="py-24 address-block-color">
+    <section className="py-24 ">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12">
           {/* General Enquiries */}
           <AnimateOnScroll>
-            <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300">
+            <div className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300">
               <h2 className="text-3xl font-bold mb-8">
                 General <span className="text-primary">Enquiries</span>
               </h2>
@@ -63,7 +63,7 @@ export default function ContactDetails() {
 
           {/* HR Enquiries */}
           <AnimateOnScroll>
-            <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300">
+            <div className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300">
               <h2 className="text-3xl font-bold mb-8">
                 HR <span className="text-primary">Enquiries</span>
               </h2>

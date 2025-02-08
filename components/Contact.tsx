@@ -56,7 +56,7 @@ export default function Contact() {
             />
           </div>
 
-          <form className="flex flex-col md:flex-row gap-8 mb-4">
+          <form className="flex flex-col lg:flex-row gap-8 mb-4">
             <div className="space-y-6 flex-1">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -147,8 +147,8 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Right Side (Help Section) */}
-            <div className="space-y-2 flex-1 md:pl-8">
+            {/* Move Help Section Below Services */}
+            <div className="space-y-2 flex-1 md:pl-0 md:w-full">
               <label className="block text-[#1A1B1E] text-base mb-1.5">
                 How can we help? <span className="text-red-500">*</span>
               </label>
