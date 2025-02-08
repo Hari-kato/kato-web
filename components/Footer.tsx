@@ -8,19 +8,19 @@ import { socialLinks } from "@/data/footer/socialLinks";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-primary text-white pt-16 pb-8">
+    <footer className="relative bg-[#2D3436] text-white pt-16 pb-8">
       {/* Background Images */}
       <Image
         src="/downwave.svg"
         alt="Down Wave"
-        width={1000}
+        width={900}
         height={100}
-        className="absolute bottom-0 left-0 "
+        className="absolute bottom-0 left-0  "
       />
       <Image
         src="/upwave.svg"
         alt="Up Wave"
-        width={1000}
+        width={800}
         height={100}
         className="absolute top-0 right-0  filter brightness-30"
       />
@@ -151,9 +151,12 @@ export default function Footer() {
         {/* Bottom Section */}
       </div>
       <div className="pt-8 border-t border-secondary-light/20">
-        <div className="flex justify-center items-center space-y-4 md:space-y-0">
-          <p className="text-secondary-light text-center text-sm">
-            Copyright 2011-{new Date().getFullYear()} Tesla All rights reserved.
+        <div className="flex flex-col md:flex-row justify-center md:justify-between items-center space-y-4 md:space-y-0">
+          <p className="text-secondary-light text-center  text-sm mx-8 ">
+            Copyright 2011-{new Date().getFullYear()}
+          </p>
+          <p className="text-secondary-light text-center  text-sm mx-8">
+            All rights reserved.
           </p>
         </div>
       </div>

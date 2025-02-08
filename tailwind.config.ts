@@ -5,35 +5,65 @@ const {
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
 const config: Config = {
-  content: [
+    darkMode: ["class"],
+    content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        primary: "var(--primary)",
-        "primary-dark": "var(--primary-dark)",
-        secondary: "var(--secondary)",
-        "secondary-light": "var(--secondary-light)",
-        accent: "var(--accent)",
-        background: "var(--background)",
-        "text-primary": "var(--text-primary)",
-        "text-secondary": "var(--text-secondary)",
-      },
-      fontFamily: {
-        lexend: ["var(--font-lexend-deca)", "system-ui", "sans-serif"],
-      },
-      boxShadow: {
-        custom: "0 4px 20px rgba(0, 0, 0, 0.08)",
-      },
-      animation: {
-        scroll: "scroll 40s linear infinite",
-        "scroll-reverse": "scroll 40s linear infinite reverse",
-        float: "float 3s ease-in-out infinite",
-      },
-    },
+  	extend: {
+  		colors: {
+  			primary: 'var(--primary)',
+  			'primary-dark': 'var(--primary-dark)',
+  			secondary: 'var(--secondary)',
+  			'secondary-light': 'var(--secondary-light)',
+  			accent: 'var(--accent)',
+  			background: 'var(--background)',
+  			'text-primary': 'var(--text-primary)',
+  			'text-secondary': 'var(--text-secondary)'
+  		},
+  		fontFamily: {
+  			lexend: [
+  				'var(--font-lexend-deca)',
+  				'system-ui',
+  				'sans-serif'
+  			]
+  		},
+  		boxShadow: {
+  			custom: '0 4px 20px rgba(0, 0, 0, 0.08)'
+  		},
+  		animation: {
+  			scroll: 'scroll 40s linear infinite',
+  			'scroll-reverse': 'scroll 40s linear infinite reverse',
+  			float: 'float 3s ease-in-out infinite',
+  			meteor: 'meteor 5s linear infinite',
+  			ripple: 'ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite'
+  		},
+  		keyframes: {
+  			meteor: {
+  				'0%': {
+  					transform: 'rotate(215deg) translateX(0)',
+  					opacity: '1'
+  				},
+  				'70%': {
+  					opacity: '1'
+  				},
+  				'100%': {
+  					transform: 'rotate(215deg) translateX(-500px)',
+  					opacity: '0'
+  				}
+  			},
+  			ripple: {
+  				'0%, 100%': {
+  					transform: 'translate(-50%, -50%) scale(1)'
+  				},
+  				'50%': {
+  					transform: 'translate(-50%, -50%) scale(0.9)'
+  				}
+  			}
+  		}
+  	}
   },
   plugins: [
     require("tailwindcss-animate"),

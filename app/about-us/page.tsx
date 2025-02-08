@@ -1,4 +1,3 @@
-"use client";
 
 import AboutHero from '@/components/about-us/AboutHero';
 import AboutTesla from '@/components/about-us/AboutTesla';
@@ -8,6 +7,10 @@ import LifeAtTesla from '@/components/careers/LifeAtTesla';
 import FAQ from '@/components/FAQ';
 import { aboutUsFaqs } from '@/data/about-us/faqs';
 
+export const metadata={
+  title: 'About Us',
+  description: 'Discover mission, services, and contact information.',
+}
 export default function AboutUsPage() {
   return (
     <main className="min-h-screen bg-white pt-20">

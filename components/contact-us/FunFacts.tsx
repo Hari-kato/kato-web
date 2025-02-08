@@ -11,6 +11,7 @@ import {
 import { funFacts, headings } from "@/data/contact-us/fun-facts";
 import Headings from "../ui/Heading";
 import AnimateOnScroll from "../ui/animateOnScroll";
+import Image from "next/image";
 
 const iconComponents = {
   Coffee,
@@ -25,8 +26,10 @@ const iconComponents = {
 
 export default function FunFacts() {
   return (
-    <section className="py-14 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="relative py-14 bg-gray-50">
+      <div className="absolute inset-0 bg-[url('/buildings.png')] bg-cover bg-center bg-no-repeat opacity-50"></div>
+  
+      <div className="relative max-w-7xl mx-auto px-4">
         <AnimateOnScroll>
           <div className="text-center mb-16">
             <Headings
@@ -36,7 +39,7 @@ export default function FunFacts() {
             />
           </div>
         </AnimateOnScroll>
-
+  
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {funFacts.map((fact, index) => {
             const IconComponent =
@@ -58,4 +61,6 @@ export default function FunFacts() {
       </div>
     </section>
   );
+  
+  
 }

@@ -18,36 +18,29 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Handle scroll state without using window.addEventListener
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
 
-    // Initial scroll state check
     handleScroll();
-
-    // Add the scroll event listener directly
     const onScroll = () => {
       handleScroll();
     };
 
-    // Monitor scroll position using `scroll` event
     window.onscroll = onScroll;
 
     return () => {
-      // Clean up the scroll event listener
       window.onscroll = null;
     };
   }, []);
 
-  // Get background color based on the current page
   const getHeaderBackground = () => {
     if (pathname === "/") {
       return "bg-secondary";
     }
     if (pathname === "/careers") {
-      return "bg-gradient-careers";
+      return "bg-gradient-careers-light";
     }
     if (pathname === "/case-studies") {
       return "bg-secondary";
@@ -123,11 +116,10 @@ export default function Header() {
                   {item.label}
                 </Link>
 
-                {/* Invisible bridge to prevent flickering when moving cursor */}
                 {item.hasDropdown && isServicesOpen && (
                   <div
-                    className="absolute left-0 w-full h-4" // Height of the gap
-                    style={{ top: "100%" }} // Position it right below the menu item
+                    className="absolute left-0 w-full h-4"
+                    style={{ top: "100%" }}
                     onMouseEnter={() => setIsServicesOpen(true)}
                     onMouseLeave={() => setIsServicesOpen(false)}
                   />
@@ -139,46 +131,35 @@ export default function Header() {
                     onMouseEnter={() => setIsServicesOpen(true)}
                     onMouseLeave={() => setIsServicesOpen(false)}
                   >
-                    {/* Dropdown Arrow */}
                     <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white transform rotate-45 shadow-[-2px_-2px_3px_-1px_rgba(0,0,0,0.1)]" />
 
-                    {/* Left Column - Services */}
                     <div className="space-y-4">
                       {servicesLeft.map((service, index) => (
-                        <Link
-                          key={index}
-                          href={service.href}
-                          className="flex items-start space-x-3 hover:bg-gray-100 p-2 rounded-lg transition-colors duration-200"
-                        >
-                          <div className="mt-1">{service.icon}</div>
-                          <div>
-                            <h4 className="font-medium text-gray-900  transition-colors duration-200">
-                              {service.title}
-                            </h4>
-                            <p className="text-sm text-gray-500">
-                              {service.description}
-                            </p>
-                          </div>
-                        </Link>
+                         <Link
+                         key={index}
+                         href={service.href}
+                         className="flex items-start space-x-3 hover:bg-gray-100 p-2 rounded-lg transition-colors duration-200 group  menu-item"
+                       >
+                         <div className="mt-1">{service.icon}</div>
+                         <div>
+                           <h4 className="font-medium">{service.title}</h4>
+                           <p className="text-sm ">{service.description}</p>
+                         </div>
+                       </Link>
                       ))}
                     </div>
 
-                    {/* Right Column - Services */}
                     <div className="space-y-4">
                       {servicesRight.map((service, index) => (
                         <Link
                           key={index}
                           href={service.href}
-                          className="flex items-start space-x-3 hover:bg-gray-50 p-2 rounded-lg transition-colors duration-200"
+                          className="flex items-start space-x-3 hover:bg-gray-100 p-2 rounded-lg transition-colors duration-200 group  menu-item"
                         >
                           <div className="mt-1">{service.icon}</div>
                           <div>
-                            <h4 className="font-medium text-gray-900 hover:text-primary transition-colors duration-200">
-                              {service.title}
-                            </h4>
-                            <p className="text-sm text-gray-500">
-                              {service.description}
-                            </p>
+                            <h4 className="font-medium">{service.title}</h4>
+                            <p className="text-sm ">{service.description}</p>
                           </div>
                         </Link>
                       ))}

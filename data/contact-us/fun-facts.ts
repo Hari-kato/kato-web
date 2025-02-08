@@ -23,30 +23,30 @@ export const funFacts = [
     color: 'icon-green',
     bgColor: 'icon-bg-green',
   },
-  {
-    text: 'Our ping pong table has witnessed 500+ epic tournaments 🏓',
-    icon: 'Target',
-    color: 'icon-red',
-    bgColor: 'icon-bg-red',
-  },
-  {
-    text: 'Our snack wall is restocked 3 times a week (blame the developers!) 🍪',
-    icon: 'Cookie',
-    color: 'icon-yellow',
-    bgColor: 'icon-bg-yellow',
-  },
-  {
-    text: "We celebrate 'Bug-Free Friday' with ice cream when we hit zero bugs 🍦",
-    icon: 'Award',
-    color: 'icon-indigo',
-    bgColor: 'icon-bg-indigo',
-  },
-  {
-    text: 'Our longest code review lasted 4 hours (and 7 coffee runs) ⌨️',
-    icon: 'Code2',
-    color: 'icon-cyan',
-    bgColor: 'icon-bg-cyan',
-  },
+  // {
+  //   text: 'Our ping pong table has witnessed 500+ epic tournaments 🏓',
+  //   icon: 'Target',
+  //   color: 'icon-red',
+  //   bgColor: 'icon-bg-red',
+  // },
+  // {
+  //   text: 'Our snack wall is restocked 3 times a week (blame the developers!) 🍪',
+  //   icon: 'Cookie',
+  //   color: 'icon-yellow',
+  //   bgColor: 'icon-bg-yellow',
+  // },
+  // {
+  //   text: "We celebrate 'Bug-Free Friday' with ice cream when we hit zero bugs 🍦",
+  //   icon: 'Award',
+  //   color: 'icon-indigo',
+  //   bgColor: 'icon-bg-indigo',
+  // },
+  // {
+  //   text: 'Our longest code review lasted 4 hours (and 7 coffee runs) ⌨️',
+  //   icon: 'Code2',
+  //   color: 'icon-cyan',
+  //   bgColor: 'icon-bg-cyan',
+  // },
 ];
 
 export const headings = {
