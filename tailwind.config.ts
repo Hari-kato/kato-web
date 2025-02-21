@@ -5,65 +5,71 @@ const {
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
 const config: Config = {
-    darkMode: ["class"],
-    content: [
+  darkMode: ["class"],
+  content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-  	extend: {
-  		colors: {
-  			primary: 'var(--primary)',
-  			'primary-dark': 'var(--primary-dark)',
-  			secondary: 'var(--secondary)',
-  			'secondary-light': 'var(--secondary-light)',
-  			accent: 'var(--accent)',
-  			background: 'var(--background)',
-  			'text-primary': 'var(--text-primary)',
-  			'text-secondary': 'var(--text-secondary)'
-  		},
-  		fontFamily: {
-  			lexend: [
-  				'var(--font-lexend-deca)',
-  				'system-ui',
-  				'sans-serif'
-  			]
-  		},
-  		boxShadow: {
-  			custom: '0 4px 20px rgba(0, 0, 0, 0.08)'
-  		},
-  		animation: {
-  			scroll: 'scroll 40s linear infinite',
-  			'scroll-reverse': 'scroll 40s linear infinite reverse',
-  			float: 'float 3s ease-in-out infinite',
-  			meteor: 'meteor 5s linear infinite',
-  			ripple: 'ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite'
-  		},
-  		keyframes: {
-  			meteor: {
-  				'0%': {
-  					transform: 'rotate(215deg) translateX(0)',
-  					opacity: '1'
-  				},
-  				'70%': {
-  					opacity: '1'
-  				},
-  				'100%': {
-  					transform: 'rotate(215deg) translateX(-500px)',
-  					opacity: '0'
-  				}
-  			},
-  			ripple: {
-  				'0%, 100%': {
-  					transform: 'translate(-50%, -50%) scale(1)'
-  				},
-  				'50%': {
-  					transform: 'translate(-50%, -50%) scale(0.9)'
-  				}
-  			}
-  		}
-  	}
+    extend: {
+      colors: {
+        primary: "var(--primary)",
+        "primary-dark": "var(--primary-dark)",
+        secondary: "var(--secondary)",
+        "secondary-light": "var(--secondary-light)",
+        accent: "var(--accent)",
+        background: "var(--background)",
+        "text-primary": "var(--text-primary)",
+        "text-secondary": "var(--text-secondary)",
+      },
+      fontFamily: {
+        lexend: ["var(--font-lexend-deca)", "system-ui", "sans-serif"],
+      },
+      boxShadow: {
+        custom: "0 4px 20px rgba(0, 0, 0, 0.08)",
+      },
+      animation: {
+        scroll: "scroll 40s linear infinite",
+        "scroll-reverse": "scroll 40s linear infinite reverse",
+        float: "float 3s ease-in-out infinite",
+        meteor: "meteor 5s linear infinite",
+        ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
+      },
+      keyframes: {
+        meteor: {
+          "0%": {
+            transform: "rotate(215deg) translateX(0)",
+            opacity: "1",
+          },
+          "70%": {
+            opacity: "1",
+          },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
+        ripple: {
+          "0%, 100%": {
+            transform: "translate(-50%, -50%) scale(1)",
+          },
+          "50%": {
+            transform: "translate(-50%, -50%) scale(0.9)",
+          },
+        },
+      },
+      screens: {
+        xs: "30rem",
+        sm: "40rem",
+        md: "48rem",
+        "1080": "67.5rem",
+        lg: "75rem",
+        xl: "80rem",
+        "2xl": "100rem",
+        "3xl": "120rem",
+      },
+    },
   },
   plugins: [
     require("tailwindcss-animate"),
@@ -81,10 +87,10 @@ const config: Config = {
         },
         { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
       );
-    }
-    
+    },
   ],
 };
+
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
@@ -95,4 +101,5 @@ function addVariablesForColors({ addBase, theme }: any) {
     ":root": newVars,
   });
 }
+
 export default config;

@@ -376,54 +376,134 @@
   animation: scroll-reverse 50s linear infinite;
   will-change: transform;
 }
-
+/* ✅ Base button styles */
 .btn {
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
-  border: 2px solid #4361ee;
-  background-color: transparent;
-  color: #4361ee;
+  justify-content: center;
   font-weight: bold;
   transition: all 0.3s ease-in-out;
   border-radius: 9999px;
+  border-width: 2px;
+  position: relative;
 }
 
-.btn::before {
+.default-blue {
+  background-color: #4361ee;
+  color: white;
+  border-color: #4361ee;
+  position: relative;
+  overflow: hidden;
+}
+
+.default-blue::before {
   content: "";
   position: absolute;
   top: 0;
-  bottom: 0;
-  right: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
-  background: #4361ee;
-  transition: width 0.3s ease-in-out;
+  background: white;
+  transition: transform 0.3s ease-in-out;
   z-index: 0;
 }
 
-.btn:hover::before {
-  width: 0%;
+.default-blue:hover::before {
+  transform: translateX(100%);
 }
 
-.btn span {
+.default-blue span {
   position: relative;
   z-index: 1;
-  color: white;
   transition: color 0.3s ease-in-out;
 }
 
-.btn:hover span {
+.default-blue:hover span {
   color: #4361ee;
 }
 
+.default {
+  background: white;
+  border-color: transparent;
+  color: #4361ee;
+  position: relative;
+  overflow: hidden;
+}
+
+.default::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #4361ee;
+  transition: transform 0.3s ease-in-out;
+  z-index: 0;
+}
+
+.default:hover::before {
+  transform: translateX(100%);
+}
+
+.default span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease-in-out;
+}
+
+.default:hover span {
+  color: white;
+}
+
+.scrolled {
+  background: #4361ee;
+  border-color: #4361ee;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.scrolled::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transition: transform 0.3s ease-in-out;
+  z-index: 0;
+}
+
+.scrolled:hover::before {
+  transform: translateX(100%);
+}
+
+.scrolled span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease-in-out;
+}
+
+.scrolled:hover span {
+  color: #4361ee;
+}
 .btn {
-  @apply relative overflow-hidden inline-block border-2 border-[#4361EE] text-[#4361EE] bg-transparent transition-colors cursor-pointer rounded-full;
+  @apply relative overflow-hidden inline-block  transition-colors cursor-pointer rounded-full;
   display: flex;
   align-items: center;
 }
-
 .address-block-color {
   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+}
+
+@media (max-width: 1080px) {
+  .contact-message {
+    display: block;
+    width: 100%;
+    order: 1;
+  }
 }

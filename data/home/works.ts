@@ -3,7 +3,7 @@ export const works = [
     title: 'Real Estate Dashboard',
     category: 'Web Application',
     description:
-      'A comprehensive property management dashboard with advanced analytics and reporting features.',
+      'A comprehensive property management dashboard with advanced analytics and reporting features .',
     image:
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426',
     link: '#',

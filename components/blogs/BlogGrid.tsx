@@ -37,7 +37,7 @@ function BlogCard({ post, compact = false }: BlogCardProps) {
               className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
             />
           </div>
-          <div className="p-6 flex flex-col flex-1">
+          <div className="p-6 md:py-9 flex flex-col flex-1">
             <div className="flex items-center gap-4 mb-4">
               <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
                 {post.category}

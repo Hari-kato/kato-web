@@ -30,6 +30,7 @@ export default function WorkCard({ work }: WorkCardProps) {
           </div>
         </div>
       </div>
+  
       <div className="p-6 flex flex-col flex-grow justify-between">
         <div>
           <span className="text-sm text-[#6366F1] font-medium">
@@ -39,12 +40,14 @@ export default function WorkCard({ work }: WorkCardProps) {
             {work.title}
           </h3>
         </div>
-        <p className="text-gray-600 text-base line-clamp-2 min-h-[3rem]">
+  
+        <p className="text-gray-600 text-base line-clamp-3 h-[4.5rem]">
           {work.description}
         </p>
       </div>
     </Link>
   </div>
+  
   
   );
 }

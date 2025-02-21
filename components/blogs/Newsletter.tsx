@@ -13,7 +13,7 @@ export default function Newsletter() {
 
   return (
     <AnimateOnScroll>
-      <div className="bg-blue-50 rounded-2xl p-8 mb-9">
+      <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl p-8 mb-9">
         <div className="flex flex-col h-full">
           <div className="mb-8">
             <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mb-6">

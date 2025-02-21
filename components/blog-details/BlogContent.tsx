@@ -1,14 +1,11 @@
-// Define the Section type with `content` as a required string
 interface Section {
   title: string;
-  content: string; // Make content required here
+  content: string; 
   lists?: {
-    // Optional lists
     type: "ul" | "ol";
     items: string[];
   }[];
   images?: {
-    // Optional images
     url: string;
     caption: string;
   }[];
@@ -17,11 +14,11 @@ interface Section {
 export interface Content {
   intro: string;
   title: string;
-  sections: Section[]; // Array of Section objects
+  sections: Section[]; 
 }
 
 interface BlogContentProps {
-  content: Content; // Expecting content to always match the Content interface
+  content: Content;
 }
 
 export default function BlogContent({ content }: BlogContentProps) {

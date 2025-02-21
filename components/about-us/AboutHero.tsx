@@ -7,14 +7,14 @@ export default function AboutHero() {
   return (
     <section>
       {/* <HeroHighlight
-        containerClassName=" banner-about"
+        containerClassName=" banner-about"k
         dottedColor="bg-dot-thick-gray-400"
         hoverColor="bg-dot-thick-slate-50"
         title={headings.title}
         subtitle={headings.subtitle}
       ></HeroHighlight> */}
       <div className="relative h-[23rem] flex items-center  justify-center w-full group overflow-hidden banner-about">
-        <div className="text-white items-center justify-center flex ">
+        <div className="text-white items-center justify-center flex z-10">
           <Headings
             title={headings.title}
             subtitle={headings.subtitle}
