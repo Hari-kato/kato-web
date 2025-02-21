@@ -1,27 +1,22 @@
-import Headings from "../ui/Heading";
 import {
-  officeLocation,
-  officeImages,
-  headings,
-  sideImages,
-} from "@/data/contact-us/locations";
-import AnimateOnScroll from "../ui/animateOnScroll";
-import {
-  MapPin,
-  Clock,
-  Phone,
   Mail,
-  MessageSquare,
+  Phone,
+  Clock,
+  MapPin,
   Globe,
   Car,
   Train,
   Plane,
 } from "lucide-react";
+import { contactDetails } from "@/data/contact-us/contactDetails";
+import AnimateOnScroll from "../ui/animateOnScroll";
+import { headings, officeLocation } from "@/data/contact-us/locations";
+import Headings from "../ui/Heading";
 
 export default function AddressBlock() {
   return (
-    <section className="py-14 bg-white">
-      <AnimateOnScroll>
+    <section className="py-24 bg-white">
+      {/* <AnimateOnScroll>
         <div className="text-center mb-16">
           <Headings
             tag={headings.tag}
@@ -29,153 +24,178 @@ export default function AddressBlock() {
             subtitle={headings.subtitle}
           />
         </div>
-      </AnimateOnScroll>
+      </AnimateOnScroll> */}
 
-      <div className="max-w-8xl mx-auto px-8  grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-1 space-y-6">
-          <div className="bg-gray-50 rounded-2xl shadow-lg p-8">
-            <div className="flex items-start gap-4 mb-8">
-              <div className="bg-blue-100 p-3 rounded-xl">
-                <MapPin className="w-6 h-6 text-blue-600" />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  {officeLocation.city}
-                </h3>
-                <p className="text-gray-600">{officeLocation.address} </p>
-              </div>
-            </div>
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <AnimateOnScroll>
+            <div className="bg-white rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <h2 className="text-3xl font-bold mb-8">
+                Our <span className="text-primary">Location</span>
+              </h2>
 
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <Clock className="w-5 h-5 text-blue-600" />
+              {/* Office Location */}
+              <div className="flex items-start gap-4 mb-4">
+                <div className="bg-blue-100 p-3 rounded-xl">
+                  <MapPin className="w-6 h-6 text-blue-600" />
+                </div>
                 <div>
-                  <p className="text-gray-600">Working Hours: 24/7</p>
-                  <p className="text-blue-600 text-sm">
-                    {" "}
-                    {officeLocation.workingHours}
-                  </p>
+                  <h3 className="text-xl font-semibold mb-2">
+                    {officeLocation.city}
+                  </h3>
+                  <p className="text-gray-600">{officeLocation.address}</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <Globe className="w-5 h-5 text-blue-600" />
-                <p className="text-gray-600"> {officeLocation.timeZone}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gray-50 rounded-2xl shadow-lg p-9">
-            <h3 className="text-lg font-semibold mb-6">How to Reach Us</h3>
-            <div className="space-y-4">
-              {[
-                {
-                  icon: Car,
-                  title: "By Car",
-                  desc: "40 minutes from city center via NH44",
-                  bgColor: "bg-green-100",
-                  color: "text-green-600",
-                },
-                {
-                  icon: Train,
-                  title: "Airport Express",
-                  desc: "Direct train every 30 minutes",
-                  bgColor: "bg-purple-100",
-                  color: "text-purple-600",
-                },
-                {
-                  icon: Plane,
-                  title: "Airport Terminal",
-                  desc: "Connected to Terminal 1 via skybridge",
-                  bgColor: "bg-blue-100",
-                  color: "text-blue-600",
-                },
-              ].map((item, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className={`${item.bgColor} p-2 rounded-lg`}>
-                    <item.icon className={`w-5 h-5 ${item.color}`} />
-                  </div>
+              {/* Working Hours & Time Zone */}
+              <div className="space-y-6 mb-4">
+                <div className="flex items-center gap-4">
+                  <Clock className="w-5 h-5 text-blue-600" />
                   <div>
-                    <h4 className="font-medium mb-1">{item.title}</h4>
-                    <p className="text-gray-600 text-sm">{item.desc}</p>
+                    <p className="text-gray-600">Working Hours</p>
+                    <p className="text-blue-600 text-sm">
+                      {officeLocation.workingHours}
+                    </p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="lg:col-span-2">
-          <div className="grid gap-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                <Phone className="w-6 h-6 text-blue-600 mb-3" />
-                <h3 className="font-semibold mb-2">Phone</h3>
-                <p className="text-gray-600">+91 (080) 4567-8900</p>
               </div>
 
-              <div className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                <Mail className="w-6 h-6 text-blue-600 mb-3" />
-                <h3 className="font-semibold mb-2">Email</h3>
-                <p className="text-gray-600">contact@company.com</p>
-              </div>
-
-              <div className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                <MessageSquare className="w-6 h-6 text-blue-600 mb-3" />
-                <h3 className="font-semibold mb-2">Live Chat</h3>
-                <p className="text-gray-600">Available 24/7</p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-12 gap-4">
-              {officeImages.map((image, index) => (
-                <div
-                  key={index}
-                  className="col-span-12 md:col-span-8 relative group"
-                >
-                  <div className="relative h-[400px] rounded-2xl overflow-hidden">
-                    <img
-                      src={image.src}
-                      alt={image.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
-                      <div className="absolute bottom-0 left-0 p-6">
-                        <h3 className="text-white text-xl font-semibold mb-2">
-                          {image.title}
-                        </h3>
-                        {image.description && (
-                          <p className="text-white/80">{image.description}</p>
-                        )}
-                      </div>
+              {/* How to Reach Us */}
+              <div className="space-y-4">
+                {[
+                  {
+                    icon: Car,
+                    title: "By Car",
+                    desc: "40 minutes from city center via NH44",
+                    bgColor: "bg-green-100",
+                    color: "text-green-600",
+                  },
+                  {
+                    icon: Train,
+                    title: "Airport Express",
+                    desc: "Direct train every 30 minutes",
+                    bgColor: "bg-purple-100",
+                    color: "text-purple-600",
+                  },
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className={`${item.bgColor} p-2 rounded-lg`}>
+                      <item.icon className={`w-5 h-5 ${item.color}`} />
                     </div>
-                  </div>
-                </div>
-              ))}
-
-              <div className="col-span-12 md:col-span-4 space-y-4">
-                {sideImages.map((image, index) => (
-                  <div
-                    key={index}
-                    className="relative h-[190px] rounded-2xl overflow-hidden group"
-                  >
-                    <img
-                      src={image.src}
-                      alt={image.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent">
-                      <div className="absolute bottom-0 left-0 p-4">
-                        <h4 className="text-white font-medium">
-                          {image.title}
-                        </h4>
-                      </div>
+                    <div>
+                      <h4 className="font-medium mb-1">{item.title}</h4>
+                      <p className="text-gray-600 text-sm">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
+          </AnimateOnScroll>
+          {/* General Enquiries */}
+          <AnimateOnScroll>
+            <div className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <h2 className="text-3xl font-bold mb-8">
+                General <span className="text-primary">Enquiries</span>
+              </h2>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Email</h3>
+                    <a
+                      href={`mailto:${contactDetails.general.email}`}
+                      className="text-gray-600 hover:text-primary-dark"
+                    >
+                      {contactDetails.general.email}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Phone</h3>
+                    <a
+                      href={`tel:${contactDetails.general.phone}`}
+                      className="text-gray-600 hover:text-primary-dark"
+                    >
+                      {contactDetails.general.phone}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">
+                      Working Hours
+                    </h3>
+                    <p className="text-gray-600">Monday - Friday</p>
+                    <p className="text-gray-600">10:00AM - 5:00PM EST</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </AnimateOnScroll>
+
+          {/* HR Enquiries */}
+          <AnimateOnScroll>
+            <div className="bg-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <h2 className="text-3xl font-bold mb-8">
+                HR <span className="text-primary">Enquiries</span>
+              </h2>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Email</h3>
+                    <a
+                      href={`mailto:${contactDetails.hr.email}`}
+                      className="text-gray-600 hover:text-primary-dark"
+                    >
+                      {contactDetails.hr.email}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Phone</h3>
+                    <a
+                      href={`tel:${contactDetails.hr.phone}`}
+                      className="text-gray-600 hover:text-primary-dark"
+                    >
+                      {contactDetails.hr.phone}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">
+                      Working Hours
+                    </h3>
+                    <p className="text-gray-600">Monday - Friday</p>
+                    <p className="text-gray-600">10:00AM - 5:00PM EST</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

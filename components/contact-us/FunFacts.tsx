@@ -26,9 +26,9 @@ const iconComponents = {
 
 export default function FunFacts() {
   return (
-    <section className="relative py-14 bg-gray-50">
-      <div className="absolute inset-0 bg-[url('/buildings.png')] bg-cover bg-center bg-no-repeat opacity-50"></div>
-  
+    <section className="relative py-24 bg-gray-50 min-h-[80vh] sm:min-h-[60vh]">
+      <div className="absolute inset-0 bg-[url('/buildings4.jpg')] bg-cover bg-center bg-no-repeat opacity-50 "></div>
+
       <div className="relative max-w-7xl mx-auto px-4">
         <AnimateOnScroll>
           <div className="text-center mb-16">
@@ -39,8 +39,8 @@ export default function FunFacts() {
             />
           </div>
         </AnimateOnScroll>
-  
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
           {funFacts.map((fact, index) => {
             const IconComponent =
               iconComponents[fact.icon as keyof typeof iconComponents];
@@ -61,6 +61,5 @@ export default function FunFacts() {
       </div>
     </section>
   );
-  
-  
 }
+

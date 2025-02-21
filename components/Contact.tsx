@@ -146,9 +146,7 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-
-            {/* Move Help Section Below Services */}
-            <div className="space-y-2 flex-1 md:pl-0 md:w-full">
+            <div className="contact-message space-y-2 flex-1">
               <label className="block text-[#1A1B1E] text-base mb-1.5">
                 How can we help? <span className="text-red-500">*</span>
               </label>
@@ -163,7 +161,7 @@ export default function Contact() {
 
           {/* Submit Button */}
           <div className="flex justify-center pt-8">
-            <AnimatedButton label="Submit" customClass="px-16 py-4" />
+            <AnimatedButton label="Submit" customClass="px-10 py-3" />
           </div>
         </div>
       </AnimateOnScroll>

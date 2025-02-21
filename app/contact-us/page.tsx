@@ -13,9 +13,9 @@ export default function ContactUsPage() {
   return (
     <main className="min-h-screen bg-white pt-20">
       <ContactHero />
+      {/* <ContactDetails /> */}
       <AddressBlock />
       <FunFacts />
-      <ContactDetails />
       <Contact />
       <GoogleMap />
     </main>

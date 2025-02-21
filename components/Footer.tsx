@@ -8,21 +8,21 @@ import { socialLinks } from "@/data/footer/socialLinks";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#2D3436] text-white pt-16 pb-8">
+    <footer className="relative bg-[#7b56e6] text-white pt-16 pb-8 z-10">
       {/* Background Images */}
       <Image
         src="/downwave.svg"
         alt="Down Wave"
         width={900}
         height={100}
-        className="absolute bottom-0 left-0  "
+        className="absolute bottom-0 left-0 z-[-1] opacity-20 filter brightness-0 invert"
       />
       <Image
         src="/upwave.svg"
         alt="Up Wave"
         width={800}
         height={100}
-        className="absolute top-0 right-0  filter brightness-30"
+        className="absolute top-0 right-0 z-[-1] opacity-20 filter brightness-0 invert"
       />
 
       <div className="max-w-7xl mx-auto px-4">
@@ -68,7 +68,7 @@ export default function Footer() {
 
           {/* Why Tesla Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Why Tesla</h3>
+            <h3 className="text-lg font-semibold mb-6 z-10">Why Tesla</h3>
             <ul className="space-y-3">
               {footerLinks.whyTesla.map((link) => (
                 <li key={link.label}>

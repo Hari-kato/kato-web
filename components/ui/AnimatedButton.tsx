@@ -6,17 +6,27 @@ interface AnimatedButtonProps {
   label: string;
   customClass?: string;
   onClick?: () => void;
-  icon?: React.ReactNode; // Icon prop added
+  icon?: React.ReactNode;
+  isScrolled?: boolean;
 }
 
-const AnimatedButton: FC<AnimatedButtonProps> = ({ href, label, customClass = '', onClick, icon }) => {
+const AnimatedButton: FC<AnimatedButtonProps> = ({
+  href,
+  label,
+  customClass = '',
+  onClick,
+  icon,
+  isScrolled,
+}) => {
+  const buttonClasses = `
+    btn transition-all duration-300 flex items-center justify-center border-2 rounded-full overflow-hidden relative
+    ${isScrolled === undefined ? 'default-blue' : isScrolled ? 'scrolled' : 'default'}
+  `.trim();
+
   const buttonContent = (
-    <button
-      className={`btn hover-filled-slide-left ${customClass} !p-auto !border-2 rounded-full flex items-center justify-center`.trim()}
-      onClick={onClick}
-    >
+    <button className={`${buttonClasses} ${customClass}`} onClick={onClick}>
       <span>{label}</span>
-      {icon && <span className="ml-2">{icon}</span>} {/* Add left margin to the icon */}
+      {icon && <span className="ml-2">{icon}</span>}
     </button>
   );
 

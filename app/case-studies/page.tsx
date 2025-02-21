@@ -6,6 +6,7 @@ import FilterTabs from '@/components/case-studies/FilterTabs';
 import CaseStudyCard from '@/components/case-studies/CaseStudyCard';
 import { categories, caseStudies } from '@/data/caseStudies/case-studies';
 
+
 export default function ServicesPage() {
   const [selectedCategory, setSelectedCategory] = useState('All Projects');
 
@@ -36,3 +37,4 @@ export default function ServicesPage() {
     </main>
   );
 }
+

@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -14,7 +13,6 @@ import AnimatedButton from "./ui/AnimatedButton";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
@@ -24,56 +22,34 @@ export default function Header() {
     };
 
     handleScroll();
-    const onScroll = () => {
-      handleScroll();
-    };
-
-    window.onscroll = onScroll;
-
-    return () => {
-      window.onscroll = null;
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const getHeaderBackground = () => {
-    if (pathname === "/") {
-      return "bg-secondary";
-    }
-    if (pathname === "/careers") {
-      return "bg-gradient-careers-light";
-    }
-    if (pathname === "/case-studies") {
-      return "bg-secondary";
-    }
-    if (pathname === "/blogs") {
-      return "bg-secondary";
-    }
-    if (pathname === "/about-us") {
-      return "bg-gradient-about-header";
-    }
-    if (pathname === "/contact-us") {
-      return "bg-secondary";
-    }
+    if (pathname === "/") return "bg-secondary";
+    if (pathname === "/careers") return "bg-gradient-careers-light";
+    if (pathname === "/case-studies") return "bg-secondary";
+    if (pathname === "/blogs") return "bg-secondary";
+    if (pathname === "/about-us") return "bg-gradient-about-header";
+    if (pathname === "/contact-us") return "bg-secondary";
 
     if (pathname.startsWith("/blogs/")) {
       const slug = pathname.split("/").pop();
       const allPosts = [featuredPost, ...blogPosts];
       const post = allPosts.find((post) => post.link.split("/").pop() === slug);
-
-      if (post?.color) {
-        return `bg-[${post.color}]`;
-      }
+      if (post?.color) return `bg-[${post.color}]`;
     }
 
     return "bg-secondary";
   };
 
-  const headerBg = getHeaderBackground();
-
   return (
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : headerBg
+        isScrolled
+          ? "bg-white/90 backdrop-blur-md shadow-sm"
+          : getHeaderBackground()
       }`}
     >
       <div className="max-w-7xl mx-auto px-4">
@@ -97,14 +73,7 @@ export default function Header() {
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
-              <div
-                key={item.label}
-                className="relative group"
-                onMouseEnter={() => item.hasDropdown && setIsServicesOpen(true)}
-                onMouseLeave={() =>
-                  item.hasDropdown && setIsServicesOpen(false)
-                }
-              >
+              <div key={item.label} className="relative group">
                 <Link
                   href={item.href}
                   className={`font-medium transition-colors duration-200 ${
@@ -116,53 +85,49 @@ export default function Header() {
                   {item.label}
                 </Link>
 
-                {item.hasDropdown && isServicesOpen && (
-                  <div
-                    className="absolute left-0 w-full h-4"
-                    style={{ top: "100%" }}
-                    onMouseEnter={() => setIsServicesOpen(true)}
-                    onMouseLeave={() => setIsServicesOpen(false)}
-                  />
-                )}
+                {item.hasDropdown && (
+                  <div className="absolute shadow-lg invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 left-1/2 -translate-x-1/2 pt-4 w-[800px]">
+                    {/* Invisible overlay to maintain hover */}
+                    <div className="absolute inset-0 -top-4" />
 
-                {item.hasDropdown && isServicesOpen && (
-                  <div
-                    className="absolute top-full left-1/2 -translate-x-1/2 w-[800px] bg-white shadow-lg rounded-lg mt-2 p-6 grid grid-cols-2 gap-6"
-                    onMouseEnter={() => setIsServicesOpen(true)}
-                    onMouseLeave={() => setIsServicesOpen(false)}
-                  >
-                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white transform rotate-45 shadow-[-2px_-2px_3px_-1px_rgba(0,0,0,0.1)]" />
+                    <div className="relative bg-white shadow-xl rounded-lg p-6 grid grid-cols-2 gap-6">
+                      <div className="absolute  -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white transform rotate-45  shadow-[-2px_-2px_3px_-1px_rgba(0,0,0,0.1)]" />
 
-                    <div className="space-y-4">
-                      {servicesLeft.map((service, index) => (
-                         <Link
-                         key={index}
-                         href={service.href}
-                         className="flex items-start space-x-3 hover:bg-gray-100 p-2 rounded-lg transition-colors duration-200 group  menu-item"
-                       >
-                         <div className="mt-1">{service.icon}</div>
-                         <div>
-                           <h4 className="font-medium">{service.title}</h4>
-                           <p className="text-sm ">{service.description}</p>
-                         </div>
-                       </Link>
-                      ))}
-                    </div>
+                      <div className="space-y-4">
+                        {servicesLeft.map((service, index) => (
+                          <Link
+                            key={index}
+                            href={service.href}
+                            className="flex items-start space-x-3 hover:bg-gray-100 p-2 rounded-lg transition-colors duration-200 group menu-item"
+                          >
+                            <div className="mt-1">{service.icon}</div>
+                            <div>
+                              <h4 className="font-medium">{service.title}</h4>
+                              <p className="text-sm text-gray-600">
+                                {service.description}
+                              </p>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
 
-                    <div className="space-y-4">
-                      {servicesRight.map((service, index) => (
-                        <Link
-                          key={index}
-                          href={service.href}
-                          className="flex items-start space-x-3 hover:bg-gray-100 p-2 rounded-lg transition-colors duration-200 group  menu-item"
-                        >
-                          <div className="mt-1">{service.icon}</div>
-                          <div>
-                            <h4 className="font-medium">{service.title}</h4>
-                            <p className="text-sm ">{service.description}</p>
-                          </div>
-                        </Link>
-                      ))}
+                      <div className="space-y-4">
+                        {servicesRight.map((service, index) => (
+                          <Link
+                            key={index}
+                            href={service.href}
+                            className="flex items-start space-x-3 hover:bg-gray-100 p-2 rounded-lg transition-colors duration-200 group menu-item"
+                          >
+                            <div className="mt-1">{service.icon}</div>
+                            <div>
+                              <h4 className="font-medium">{service.title}</h4>
+                              <p className="text-sm text-gray-600">
+                                {service.description}
+                              </p>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )}
@@ -171,7 +136,8 @@ export default function Header() {
             <AnimatedButton
               label="Contact Us"
               href="/contact-us"
-              customClass="px-6 py-2.5"
+              isScrolled={isScrolled} // ✅ Now recognized
+              customClass="px-4 py-2"
             />
           </nav>
 
