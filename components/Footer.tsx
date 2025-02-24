@@ -5,10 +5,15 @@ import Image from "next/image";
 import { Code2, Mail, Phone } from "lucide-react";
 import { footerLinks } from "@/data/footer/footerlinks";
 import { socialLinks } from "@/data/footer/socialLinks";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname(); 
+
+  const bgColor = pathname === "/case-studies" || pathname === "/blogs" ? "#7b56e6" : "#2D3436";
+
   return (
-    <footer className="relative bg-[#7b56e6] text-white pt-16 pb-8 z-10">
+    <footer className="relative text-white pt-16 pb-8 z-10" style={{ backgroundColor: bgColor }}>
       {/* Background Images */}
       <Image
         src="/downwave.svg"
