@@ -1,3 +1,5 @@
+import React from "react";
+
 interface Section {
   title: string;
   content: string; 
@@ -31,10 +33,16 @@ export default function BlogContent({ content }: BlogContentProps) {
       <h1 className="text-3xl font-bold text-gray-900 mb-6">{content.title}</h1>
 
       {content.sections.map((section, index) => (
-        <div key={index} className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            {section.title}
-          </h2>
+  <div key={index} className="mb-12">
+    {/* Title Handling for Line Breaks */}
+    <h2 className="text-2xl font-bold text-gray-900 mb-4">
+      {section.title.split("\n").map((line, i) => (
+        <React.Fragment key={i}>
+          {line}
+          <br />
+        </React.Fragment>
+      ))}
+    </h2>
 
           <div className="text-lg leading-relaxed text-gray-600 mb-6 whitespace-pre-wrap">
             {section.content}

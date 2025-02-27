@@ -15,38 +15,38 @@ export default function Clients() {
         </div>
       </AnimateOnScroll>
 
-      {/* First Row */}
+      {/* First Row - First 9 Clients */}
       <AnimateOnScroll>
         <div className="relative w-full">
           <div className="flex space-x-12 animate-[scroll_50s_linear_infinite]">
-            {[...clients, ...clients].map((client, index) => (
-              <div key={`${client.name}-${index}`} className="flex-shrink-0">
-                <img
-                  src={`${client.logo}${client.name}`}
-                  alt={client.name}
-                  className="w-[180px] h-[100px] object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </AnimateOnScroll>
-
-      {/* Second Row */}
-      <AnimateOnScroll>
-        <div className="relative w-full mt-12">
-          <div className="flex space-x-12 animate-[scroll_50s_linear_infinite_reverse]">
-            {[...clients.slice(10), ...clients.slice(10)].map(
+            {[...clients.slice(0, 9), ...clients.slice(0, 9)].map(
               (client, index) => (
                 <div key={`${client.name}-${index}`} className="flex-shrink-0">
                   <img
-                    src={`${client.logo}${client.name}`}
+                    src={client.logo}
                     alt={client.name}
-                    className="w-[180px] h-[100px] object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                    className="w-[220px] h-[50px] object-fit filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
               )
             )}
+          </div>
+        </div>
+      </AnimateOnScroll>
+
+      {/* Second Row - Remaining Clients */}
+      <AnimateOnScroll>
+        <div className="relative w-full mt-12">
+          <div className="flex space-x-12 animate-[scroll_50s_linear_infinite_reverse]">
+            {[...clients.slice(9), ...clients.slice(9)].map((client, index) => (
+              <div key={`${client.name}-${index}`} className="flex-shrink-0">
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="w-[220px] h-[90px] object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </AnimateOnScroll>

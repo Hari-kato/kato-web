@@ -76,7 +76,7 @@ export default function Header() {
               <div key={item.label} className="relative group">
                 <Link
                   href={item.href}
-                  className={`font-medium transition-colors duration-200 ${
+                  className={`relative z-10 font-medium transition-colors duration-200 ${
                     isScrolled
                       ? "text-gray-600 hover:text-primary"
                       : "text-white/90 hover:text-white"
@@ -87,7 +87,6 @@ export default function Header() {
 
                 {item.hasDropdown && (
                   <div className="absolute shadow-lg invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 left-1/2 -translate-x-1/2 pt-4 w-[800px]">
-                    {/* Invisible overlay to maintain hover */}
                     <div className="absolute inset-0 -top-4" />
 
                     <div className="relative bg-white shadow-xl rounded-lg p-6 grid grid-cols-2 gap-6">
@@ -136,7 +135,7 @@ export default function Header() {
             <AnimatedButton
               label="Contact Us"
               href="/contact-us"
-              isScrolled={isScrolled} // ✅ Now recognized
+              isScrolled={isScrolled}
               customClass="px-4 py-2"
             />
           </nav>

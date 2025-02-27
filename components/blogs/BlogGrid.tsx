@@ -44,7 +44,7 @@ function BlogCard({ post, compact = false }: BlogCardProps) {
               </span>
               <span className="text-gray-500 text-sm">{post.date}</span>
             </div>
-            <h3 className="text-xl font-bold mb-3 blog-title text-gray-900">
+            <h3 className="text-xl font-bold mb-3 blog-title text-gray-900 line-clamp-2">
               {post.title}
             </h3>
             <p className="text-gray-600 mb-4 flex-1 line-clamp-2 md:line-clamp-3">

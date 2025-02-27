@@ -16,7 +16,7 @@ export default function BlogAuthor({ author }: BlogAuthorProps) {
       </div>
       <div>
         <h3 className="text-white font-medium">{author}</h3>
-        <p className="text-white/80 text-sm">Technical Content Writer</p>
+        <p className="text-white/80 text-sm">Co-Founder & Chief Innovation Officer at Katomaran.</p>
       </div>
     </div>
   );
